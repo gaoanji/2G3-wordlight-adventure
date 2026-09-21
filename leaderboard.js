@@ -2,7 +2,7 @@
 (() => {
   'use strict';
   const ENDPOINT='https://script.google.com/macros/s/AKfycbxu1LNp_AdqEuQPkjLyTx7Cts1R52Ez7SVn38Uk2Z2ko-_hovtK5D0_aRKOO247j70Y/exec';
-  const KEY='wordlight_cloud_queue_2g3_v1', IDKEY='wordlight_cloud_ids_2g3_v1';
+  const KEY='wordlight_cloud_queue_2g3_v2', IDKEY='wordlight_cloud_ids_2g3_v2';
   const uuid=()=>crypto.randomUUID?crypto.randomUUID():Array.from(crypto.getRandomValues(new Uint8Array(16)),b=>b.toString(16).padStart(2,'0')).join('');
   const read=(key,fallback)=>{try{return JSON.parse(localStorage.getItem(key))||fallback}catch{return fallback}};
   let queue=read(KEY,[]),ids=read(IDKEY,{}),sending=false,lastError='',session=null,cardTimer,requestVersion=0,lastFocus;
@@ -34,13 +34,13 @@
     clearTimeout(cardTimer);if(!session||session.stage!=='cards'||!session.words.size)return;
     tick();const seconds=Math.min(14400,Math.floor(session.seconds));session.seconds-=seconds;
     enqueue({eventId:session.pendingId,profile:session.profile,runId:session.runId,stage:'cards',words:[...session.words],seconds});session.words.clear();session.pendingId=null;
-    try{localStorage.removeItem('wordlight_pending_cards_2g3_v1')}catch{}
+    try{localStorage.removeItem('wordlight_pending_cards_2g3_v2')}catch{}
   }
   function card(word){
     if(!session||session.stage!=='cards')begin('cards');if(!session)return;
     session.pendingId ||= uuid();session.words.add(word);tick();
     // Persist the unfinished batch before navigating away or losing the tab.
-    try{localStorage.setItem('wordlight_pending_cards_2g3_v1',JSON.stringify({eventId:session.pendingId,profile:session.profile,runId:session.runId,stage:'cards',words:[...session.words],seconds:Math.min(14400,Math.floor(session.seconds))}))}catch{storageError=true;updateStatus()}
+    try{localStorage.setItem('wordlight_pending_cards_2g3_v2',JSON.stringify({eventId:session.pendingId,profile:session.profile,runId:session.runId,stage:'cards',words:[...session.words],seconds:Math.min(14400,Math.floor(session.seconds))}))}catch{storageError=true;updateStatus()}
     clearTimeout(cardTimer);if(session.words.size>=6)flushCards();else cardTimer=setTimeout(flushCards,6000);
   }
   function leave(){tick();flushCards();session=null;}
@@ -96,7 +96,7 @@
   window.addEventListener('storage',e=>{if(e.key===KEY){queue=read(KEY,queue);updateStatus()}});
   window.addEventListener('online',()=>void drain());window.addEventListener('pagehide',flushCards);
   setInterval(()=>{if(queue.length&&!document.hidden)void drain()},30000);
-  const recovered=read('wordlight_pending_cards_2g3_v1',null);
-  if(recovered?.words?.length){enqueue(recovered);try{localStorage.removeItem('wordlight_pending_cards_2g3_v1')}catch{}}
+  const recovered=read('wordlight_pending_cards_2g3_v2',null);
+  if(recovered?.words?.length){enqueue(recovered);try{localStorage.removeItem('wordlight_pending_cards_2g3_v2')}catch{}}
   window.WordlightCloud={begin,card,round,leave,open,drain};updateStatus();if(queue.length)void drain();
 })();
