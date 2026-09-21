@@ -1,0 +1,969 @@
+<!doctype html>
+<html lang="zh-SG">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#102a43">
+  <meta name="description" content="中二G3期末考试词语互动复习平台">
+  <title>词光奇境大冒险 · 中二G3</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23102a43'/%3E%3Ccircle cx='32' cy='32' r='23' fill='%232ec4b6'/%3E%3Ctext x='32' y='43' text-anchor='middle' font-size='31' font-family='sans-serif' font-weight='700' fill='white'%3E词%3C/text%3E%3C/svg%3E">
+  <style>
+    :root{--navy:#102a43;--blue:#1967d2;--cyan:#2ec4b6;--yellow:#ffcc4d;--red:#ef476f;--purple:#7b61ff;--paper:#f5f8fc;--ink:#17324d;--muted:#66788a;--white:#fff;--shadow:0 14px 38px rgba(16,42,67,.12);--radius:22px}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 8% 3%,rgba(46,196,182,.13),transparent 26rem),radial-gradient(circle at 96% 18%,rgba(123,97,255,.12),transparent 25rem),var(--paper);color:var(--ink);font-family:"Noto Sans SC","PingFang SC","Microsoft YaHei",system-ui,sans-serif;min-height:100vh}
+    button,input{font:inherit}button{cursor:pointer}button:focus-visible,input:focus-visible{outline:4px solid rgba(25,103,210,.25);outline-offset:3px}.hidden{display:none!important}
+    .topbar{position:sticky;top:0;z-index:20;background:rgba(245,248,252,.9);backdrop-filter:blur(16px);border-bottom:1px solid rgba(16,42,67,.08)}
+    .top-inner{max-width:1180px;margin:auto;padding:13px 20px;display:flex;align-items:center;gap:14px}.brand{display:flex;align-items:center;gap:10px;font-weight:900;font-size:1.13rem;margin-right:auto}.brand-mark{width:40px;height:40px;border-radius:13px;display:grid;place-items:center;color:white;background:linear-gradient(145deg,var(--cyan),#168aad);box-shadow:0 7px 16px rgba(46,196,182,.3)}
+    .top-btn{border:0;background:white;color:var(--ink);border-radius:14px;padding:10px 14px;font-weight:750;box-shadow:0 4px 14px rgba(16,42,67,.08)}.top-btn:hover{transform:translateY(-1px)}.reset-btn{color:#a8243a}.play-btn:disabled{background:#9aa9b7!important;cursor:not-allowed;filter:none}.locked-note{color:#8a5b00!important}
+    main{max-width:1180px;margin:auto;padding:28px 20px 70px}.welcome{display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center;background:linear-gradient(125deg,#102a43,#174d73);color:#fff;padding:28px 30px;border-radius:28px;box-shadow:var(--shadow);overflow:hidden;position:relative}.welcome:after{content:"词";position:absolute;right:210px;top:-80px;font-size:19rem;font-weight:900;color:rgba(255,255,255,.035);transform:rotate(-8deg)}
+    .welcome h1{margin:0 0 8px;font-size:clamp(1.7rem,4vw,2.5rem)}.welcome p{margin:0;color:#d5e9f6;font-size:1rem;line-height:1.65}.student-chip{position:relative;z-index:1;display:flex;align-items:center;gap:12px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:18px;padding:13px 16px;min-width:210px}.avatar{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;background:var(--yellow);color:var(--navy);font-weight:900}.student-chip strong,.student-chip small{display:block}.student-chip small{color:#d5e9f6;margin-top:2px}
+    .status-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:18px 0}.status-card{background:#fff;border-radius:18px;padding:16px 18px;box-shadow:0 6px 20px rgba(16,42,67,.07);display:flex;gap:13px;align-items:center}.status-icon{width:43px;height:43px;border-radius:14px;display:grid;place-items:center;font-size:1.25rem}.status-card b{font-size:1.2rem;display:block}.status-card span{color:var(--muted);font-size:.88rem}
+    .section-head{display:flex;justify-content:space-between;align-items:end;gap:15px;margin:30px 2px 15px}.section-head h2{margin:0;font-size:1.35rem}.section-head p{margin:4px 0 0;color:var(--muted)}
+    .mission-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:17px}.mission{--accent:var(--blue);background:#fff;border:1px solid rgba(16,42,67,.07);border-radius:var(--radius);padding:19px;box-shadow:0 7px 24px rgba(16,42,67,.08);transition:.2s transform,.2s box-shadow;position:relative;overflow:hidden}.mission:hover{transform:translateY(-4px);box-shadow:0 15px 35px rgba(16,42,67,.13)}.mission:before{content:"";position:absolute;inset:0 auto 0 0;width:5px;background:var(--accent)}.mission:nth-child(2){--accent:#19a7a0}.mission:nth-child(3){--accent:#f59e0b}.mission:nth-child(4){--accent:#ef476f}.mission:nth-child(5){--accent:#7b61ff}.mission:nth-child(6){--accent:#137c8b}.mission-top{display:flex;gap:14px;align-items:center}.mini-badge{width:66px;height:66px;flex:0 0 auto;border-radius:50%;padding:5px;background:#b8c1cb;filter:grayscale(1);position:relative;box-shadow:inset 0 0 0 2px rgba(255,255,255,.5)}.mini-badge.earned{filter:none;background:conic-gradient(from 20deg,var(--accent),#ffe66d,var(--accent));}.mini-badge-inner{width:100%;height:100%;border-radius:50%;background:linear-gradient(150deg,#fff,rgba(255,255,255,.7));display:grid;place-items:center;font-weight:950;font-size:1.25rem;color:var(--accent);border:2px solid rgba(255,255,255,.8)}.mission h3{margin:0 0 3px;font-size:1.08rem}.mission-desc{color:var(--muted);font-size:.9rem;line-height:1.55;margin:12px 0}.energy{height:9px;border-radius:10px;background:#e8edf2;overflow:hidden}.energy span{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--accent),#ffd166);border-radius:inherit;transition:width .7s}.energy-label{display:flex;justify-content:space-between;color:var(--muted);font-size:.78rem;margin-top:6px}.play-btn{width:100%;border:0;color:#fff;background:var(--accent);border-radius:14px;margin-top:13px;padding:11px;font-weight:850;transition:.15s}.play-btn:hover{filter:brightness(.95)}
+    .badge-wall{display:grid;grid-template-columns:repeat(7,1fr);gap:12px;background:#102a43;padding:20px;border-radius:25px;box-shadow:var(--shadow)}.wall-badge{text-align:center;color:#dbe8f2;min-width:0}.wall-badge .medal{margin:auto;width:82px;height:82px;border-radius:50%;background:#6d7883;padding:6px;filter:grayscale(1);opacity:.64;transition:.7s;box-shadow:inset 0 0 0 2px rgba(255,255,255,.18)}.wall-badge.unlocked .medal{filter:none;opacity:1;background:conic-gradient(#ffd166,#ef476f,#7b61ff,#2ec4b6,#ffd166);box-shadow:0 0 26px rgba(255,209,102,.35)}.medal-core{height:100%;border-radius:50%;background:linear-gradient(145deg,#fafcff,#c9d7e4);display:grid;place-items:center;color:#334e68;font-size:1.45rem;font-weight:950}.wall-badge.unlocked .medal-core{color:#102a43;background:linear-gradient(145deg,#fff8cf,#ffd166)}.wall-badge p{font-size:.75rem;margin:7px 0 0;white-space:normal}.secret .medal-core{background:#34495e;color:#7f8c8d}.secret.unlocked .medal-core{background:linear-gradient(145deg,#fff4b8,#ffb703);color:#562b00}
+    .view{animation:fadeIn .25s ease}@keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}.back{border:0;background:transparent;color:var(--blue);font-weight:800;padding:8px 0 16px}.game-shell{max-width:780px;margin:auto}.game-head{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-bottom:15px}.game-head h2{margin:0}.round-count{background:#e8f2ff;color:#1557a2;padding:7px 12px;border-radius:999px;font-weight:800}.q-progress{height:10px;background:#dfe7ef;border-radius:10px;overflow:hidden;margin-bottom:18px}.q-progress span{height:100%;display:block;background:linear-gradient(90deg,var(--cyan),var(--blue));transition:width .35s}.question-card{background:#fff;border-radius:26px;padding:clamp(22px,5vw,40px);box-shadow:var(--shadow);min-height:380px;display:flex;flex-direction:column}.q-kicker{font-size:.85rem;color:var(--blue);font-weight:850}.prompt{font-size:clamp(1.25rem,3vw,1.75rem);line-height:1.7;margin:16px 0 22px;font-weight:760}.pinyin{font-size:1.25rem;color:#6b46c1;letter-spacing:.04em}.listen-btn{border:0;border-radius:999px;background:#edf7ff;color:#1557a2;padding:8px 13px;font-weight:800;margin-left:8px}.options{display:grid;grid-template-columns:1fr;gap:11px;margin-top:auto}.option{border:2px solid #dbe5ee;background:#fff;color:var(--ink);padding:14px 16px;border-radius:16px;text-align:left;font-weight:750;font-size:1.05rem;transition:.15s}.option:hover:not(:disabled){border-color:var(--blue);background:#f3f8ff}.option.correct{border-color:#17a673;background:#eafaf3;color:#08754e}.option.wrong{border-color:#e65066;background:#fff0f2;color:#a8243a}.feedback{border-radius:16px;padding:13px 15px;margin-top:14px;line-height:1.55;font-weight:650}.feedback.ok{background:#eafaf3;color:#08754e}.feedback.no{background:#fff6df;color:#704b00}.next-btn{align-self:flex-end;border:0;background:var(--navy);color:white;padding:11px 20px;border-radius:14px;font-weight:850;margin-top:14px}
+    .cards-panel{background:#fff;border-radius:26px;box-shadow:var(--shadow);padding:clamp(16px,4vw,28px)}.card-progress-head{display:flex;justify-content:space-between;gap:12px;color:var(--muted);font-weight:750;margin-bottom:8px}.study-stage{perspective:1200px;max-width:620px;height:390px;margin:25px auto 20px}.flip-card{position:relative;width:100%;height:100%;transform-style:preserve-3d;transition:transform .7s cubic-bezier(.2,.75,.25,1);cursor:pointer}.flip-card.flipped{transform:rotateY(180deg)}.card-face{position:absolute;inset:0;backface-visibility:hidden;border-radius:26px;padding:28px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;border:2px solid #dce7f0;box-shadow:0 16px 38px rgba(16,42,67,.11);background:linear-gradient(145deg,#fff,#f1f8ff)}.card-back{transform:rotateY(180deg);background:linear-gradient(145deg,#fff,#effcf9)}.study-word{font-size:clamp(3.2rem,10vw,5.6rem);font-weight:950;letter-spacing:.06em;color:var(--navy)}.flip-hint{color:var(--muted);margin-top:22px}.card-speaker{position:absolute;right:18px;top:18px;width:48px;height:48px;border:0;border-radius:50%;background:#e9f4ff;color:#1557a2;font-size:1.25rem;z-index:2}.back-pinyin{font-size:1.65rem;color:#6b46c1;font-weight:850}.back-meaning{font-size:1.15rem;line-height:1.6;margin:14px 0}.back-english{color:var(--muted);font-weight:700}.back-example{margin-top:20px;padding-top:16px;border-top:1px solid #dce7ef;width:100%;font-size:1.1rem;line-height:1.6}.study-nav{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:12px}.study-nav button{border:0;border-radius:14px;padding:12px 16px;font-weight:850}.study-nav .prev{background:#edf2f7;color:var(--ink)}.study-nav .next{background:var(--blue);color:#fff}.study-nav button:disabled{opacity:.38;cursor:not-allowed}.seen-check{color:#07805c;font-weight:850}.complete-study{max-width:620px;margin:18px auto 0}.complete-study .primary{font-size:1.05rem}
+    .modal{position:fixed;inset:0;background:rgba(6,24,39,.65);backdrop-filter:blur(7px);z-index:50;display:grid;place-items:center;padding:18px}.modal-card{background:#fff;border-radius:28px;padding:28px;max-width:470px;width:100%;box-shadow:0 30px 70px rgba(0,0,0,.28)}.modal-card h2{margin-top:0}.form-row{display:grid;grid-template-columns:1fr 1fr;gap:11px}.field{margin:12px 0}.field label{display:block;font-weight:750;margin-bottom:6px}.field input{width:100%;border:2px solid #dce5ed;border-radius:13px;padding:12px;font-size:1rem}.primary{border:0;width:100%;background:var(--blue);color:white;border-radius:14px;padding:13px;font-weight:850;margin-top:10px}.muted-note{font-size:.85rem;color:var(--muted);line-height:1.5}
+    .story-overlay{position:fixed;inset:0;z-index:45;display:grid;place-items:center;padding:clamp(16px,4vw,42px);background:linear-gradient(rgba(7,28,42,.34),rgba(7,28,42,.34)),url('assets/cover-wide.webp') center/cover no-repeat}.story-card{width:min(760px,100%);max-height:min(88vh,760px);overflow:auto;padding:clamp(24px,5vw,48px);border:2px solid rgba(226,190,100,.8);border-radius:30px;background:linear-gradient(145deg,rgba(255,250,231,.96),rgba(247,239,207,.93));box-shadow:0 24px 70px rgba(0,0,0,.34);text-align:center;color:#17324d}.story-card h2{margin:0 0 18px;color:#8a5b16;font-family:inherit;font-size:clamp(1.5rem,4vw,2.2rem)}.story-cn{font-size:clamp(1.12rem,2.5vw,1.35rem);line-height:2;text-align:left;white-space:pre-line;margin:0 auto 14px;max-width:650px;font-weight:650}.story-pinyin,.story-en{display:none}.story-pinyin{font-size:clamp(.95rem,2vw,1.1rem);line-height:1.8;text-align:left;white-space:pre-line;color:#6b46c1;margin:0 auto 14px;max-width:650px}.story-en{font-size:clamp(.95rem,2vw,1.1rem);line-height:1.65;text-align:left;white-space:pre-line;color:#66788a;margin:0 auto 16px;max-width:650px}.story-tools{display:flex;justify-content:center;gap:10px;flex-wrap:wrap}.story-tools button{border:0;border-radius:999px;padding:9px 15px;background:#edf7ff;color:#1557a2;font-weight:800}.story-card .primary{max-width:330px;margin:22px auto 0;background:#197f72}.story-card .primary:hover{filter:brightness(.95);transform:translateY(-1px)}
+    .unlock-card{text-align:center;position:relative;overflow:hidden}.unlock-medal{--c:#2ec4b6;width:170px;height:170px;margin:5px auto 18px;border-radius:50%;padding:10px;background:conic-gradient(var(--c),#ffe66d,var(--c),#fff,var(--c));box-shadow:0 0 0 12px rgba(46,196,182,.11),0 0 55px rgba(46,196,182,.45);animation:unlock 1.15s cubic-bezier(.18,.89,.32,1.28),glow 1.7s infinite alternate}.unlock-medal>div{height:100%;border-radius:50%;display:grid;place-items:center;background:linear-gradient(145deg,#fff,#dff9f5);font-size:2rem;font-weight:950;color:var(--navy)}@keyframes unlock{0%{transform:perspective(700px) rotateY(0) scale(.55);filter:grayscale(1)}55%{transform:perspective(700px) rotateY(190deg) scale(1.15);filter:grayscale(.5)}100%{transform:perspective(700px) rotateY(360deg) scale(1);filter:none}}@keyframes glow{to{box-shadow:0 0 0 18px rgba(46,196,182,.04),0 0 75px rgba(255,204,77,.65)}}.spark{position:absolute;width:9px;height:9px;border-radius:50%;background:#ffd166;animation:spark 1.6s ease-out infinite}.spark:nth-child(1){left:15%;top:30%}.spark:nth-child(2){right:16%;top:20%;animation-delay:.35s}.spark:nth-child(3){right:12%;bottom:26%;animation-delay:.7s}.spark:nth-child(4){left:13%;bottom:22%;animation-delay:1s}@keyframes spark{0%{transform:scale(0);opacity:0}45%{transform:scale(1.7);opacity:1}100%{transform:translateY(-25px) scale(0);opacity:0}}
+    .result{text-align:center}.result-score{font-size:3.6rem;font-weight:950;color:var(--blue);margin:8px}.result-actions{display:grid;grid-template-columns:1fr 1fr;gap:10px}.secondary{border:2px solid #d7e2ec;background:white;color:var(--ink);border-radius:14px;padding:11px;font-weight:800}.round-stars{display:flex;justify-content:center;gap:10px;margin:10px 0}.star-shape{width:58px;height:58px;filter:drop-shadow(0 4px 5px rgba(133,91,0,.18))}.star-shape path{stroke-linejoin:round;stroke-linecap:round}
+    @media(max-width:850px){.mission-grid{grid-template-columns:repeat(2,1fr)}.badge-wall{grid-template-columns:repeat(4,1fr)}}
+    @media(max-width:580px){.story-overlay{background-image:linear-gradient(rgba(7,28,42,.34),rgba(7,28,42,.34)),url('assets/cover-tall.webp')}@media(max-width:580px){main{padding:16px 13px 50px}.top-inner{padding:10px 13px}.brand span{display:none}.top-btn{padding:9px 10px}.welcome{grid-template-columns:1fr;padding:22px}.student-chip{min-width:0}.status-grid{grid-template-columns:1fr}.mission-grid{grid-template-columns:1fr}.badge-wall{grid-template-columns:repeat(2,1fr)}.form-row,.result-actions{grid-template-columns:1fr}.question-card{min-height:420px}.wall-badge .medal{width:76px;height:76px}.study-stage{height:430px}.card-face{padding:22px 18px}.study-nav{grid-template-columns:1fr 1fr}.seen-check{grid-column:1/-1;grid-row:1;text-align:center}}
+    #storySpeak{display:none!important}.story-card h2{display:none}.story-cn{font-family:'STKaiti','KaiTi',serif;font-size:clamp(1.28rem,3vw,1.65rem);line-height:2.05}.story-card .primary,.story-tools .story-toggle{min-height:62px;min-width:235px;border:0;border-radius:0;color:#fff2ba;background:url('assets/start-jade.webp') center/contain no-repeat!important;text-shadow:0 2px 2px #102f2b;font-family:'STKaiti','KaiTi',serif;font-size:clamp(23px,2.5vw,38px);font-weight:900;padding:0 35px;box-shadow:none;transition:filter .15s}.story-card .primary{margin:22px auto 0}.story-card .primary:hover,.story-tools .story-toggle:hover{filter:brightness(1.16);transform:none}.story-card .primary:active,.story-tools .story-toggle:active{filter:brightness(.9);transform:none}
+    @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+  </style>
+<link rel="stylesheet" href="adventure.css"><link rel="stylesheet" href="scenes.css?v=13"><script src="scenes.js?v=13"></script><script src="user-ui.js?v=18"></script>
+<link rel="stylesheet" href="leaderboard.css?v=3">
+<link rel="stylesheet" href="reward-polish.css?v=1">
+<link rel="stylesheet" href="story-layout.css?v=1">
+<script src="effects.js?v=1" defer></script>
+</head>
+<body>
+<section id="splash" aria-label="词光奇境大冒险"><picture class="cover-art"><source media="(orientation:portrait)" srcset="assets/cover-tall.webp"><img src="assets/cover-wide.webp" alt="词光奇境大冒险，汉服熊猫和水獭带你探索奇境"></picture><button id="enterAdventure">进入游戏</button><div class="splash-school"><img src="assets/school-logo.png" alt="Bedok Green Secondary School" width="463" height="514"></div><p class="splash-credit"><span>© 2026 Bedok Green Secondary School</span><span> · Designed by Miss Gao Anji</span><span> · For Educational Use Only</span></p></section>
+<style>
+/* Branding is confined to the opening cover. */
+#splash .splash-school{position:absolute;z-index:2;top:max(16px,env(safe-area-inset-top));left:max(18px,env(safe-area-inset-left));width:clamp(62px,8vw,100px);padding:7px;pointer-events:none}
+#splash .splash-school img{display:block;width:100%;height:auto;object-fit:contain;filter:drop-shadow(0 0 2px rgba(255,255,245,.95)) drop-shadow(0 0 5px rgba(255,248,218,.65))}
+#splash .splash-credit{position:absolute;z-index:2;left:0;right:0;bottom:0;margin:0;padding:7px 12px max(7px,env(safe-area-inset-bottom));color:#f5edcf;background:linear-gradient(transparent,#082b3bcc);font:400 13px/1.45 Arial,sans-serif;text-align:center;text-shadow:0 1px 3px #08232f;pointer-events:none}
+#splash .splash-credit span{display:inline-block}
+@media(orientation:portrait){#splash .splash-credit{font-size:11px;padding-top:9px}#splash #enterAdventure{bottom:max(64px,calc(52px + env(safe-area-inset-bottom)))}}
+@media(max-height:440px) and (orientation:landscape){#splash .splash-school{width:56px;top:10px;left:max(12px,env(safe-area-inset-left));padding:5px}#splash .splash-credit{font-size:10px;padding-top:4px;padding-bottom:4px}#splash #enterAdventure{bottom:28px}}
+</style>
+<section id="storyOverlay" class="story-overlay hidden" aria-label="故事背景"><div class="story-card"><h2>词光奇境的故事</h2><div class="story-copy"><p class="story-cn">很久以前，词光奇境里有一颗神奇的“词光宝珠”。
+宝珠里的词语力量，可以帮助大家读懂故事、说出好句子，也能打开通往不同世界的大门。
+可是有一天，贪玩的“迷雾怪”把词光宝珠的力量藏了起来，奇境里的文字变得灰暗，许多道路也被浓雾挡住了。
+现在，熊猫小侠和水獭灵灵要陪你一起出发，寻找散落在奇境各处的词光徽章。每完成一个任务，你们就能获得新的力量，点亮一枚徽章，打开一条新的道路。
+听说，在所有徽章被点亮以后，还会出现一件神秘宝物……
+这场冒险才刚刚开始！</p><p class="story-pinyin">Hěn jiǔ yǐqián, cíguāng qíjìng lǐ yǒu yì kē shénqí de “cíguāng bǎozhū”。
+Bǎozhū lǐ de cíyǔ lìliàng, kěyǐ bāngzhù dàjiā dú dǒng gùshi, shuō chū hǎo jùzi, yě néng dǎkāi tōngwǎng bùtóng shìjiè de dàmén。
+Kěshì yǒu yì tiān, tānwán de “wùwù guài” bǎ bǎozhū de lìliàng cáng le qǐlái, qíjìng lǐ de wénzì biàn dé huī àn, xǔduō dàolù yě bèi nóngwù dǎng zhù le。
+Xiànzài, xióngmāo xiǎoxiá hé shuǐtǎ língling yào yìqǐ chūfā, xúnzhǎo sànluò zài qíjìng gè chù de cíguāng huīzhāng。Měi wánchéng yí gè rènwu, tāmen jiù néng huòdé xīn de lìliàng, diǎn liàng yì méi huīzhāng, dǎkāi yì tiáo xīn de dàolù。
+Tīngshuō, zài suǒyǒu huīzhāng bèi diǎn liàng yǐhòu, hái huì chūxiàn yí jiàn shénmì bǎowù……
+Zhè chǎng màoxiǎn cái gānggāng kāishǐ！</p><p class="story-en">Long ago, a magical Wordlight Orb appeared in the Wordlight Realm.
+Its word power helps everyone understand stories, make good sentences and open the doors to different worlds.
+One day, the Mist Monster hid the orb’s power. The words became grey, and thick mist covered many paths.
+Now, Panda Hero and Otter Lingling must set off to find the Wordlight Badges. Each completed mission gives them new power, lights up a badge and opens a new path.
+When all the badges are lit, a mysterious treasure will appear…
+The adventure has just begun!</p></div><div class="story-actions"><div class="story-tools"><button id="storySpeak">🔊 朗读故事</button></div><button class="primary" id="storyContinue">开始冒险</button></div></div></section>
+  <header class="topbar"><div class="top-inner"><div class="brand"><div class="brand-mark">词</div><span>词光奇境大冒险</span></div><button class="top-btn" id="homeBtn">任务首页</button><button class="top-btn" id="rankBtn" aria-haspopup="dialog"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M8 3h8v7a4 4 0 0 1-8 0V3Zm0 2H4v3a4 4 0 0 0 4 4m8-7h4v3a4 4 0 0 1-4 4m-4 2v6m-4 1h8"/></svg>排行榜</button><button class="top-btn reset-btn" id="resetBtn">重新开始</button><button class="top-btn" id="profileBtn"><img class="settings-icon" src="assets/icons/icon-settings.png" alt="">设置</button></div></header>
+  <main>
+    <section id="homeView" class="view">
+      <div class="welcome"><div><h1><span id="greeting">你好</span>，今天去哪儿？</h1><p>每局只有6题。先完成藏书阁，再自由探索四关。全部点亮后，还能解锁隐藏款徽章哦！</p></div><div class="student-chip"><div class="avatar" id="avatar">同</div><div><strong id="studentName">同学</strong><small id="studentClass">尚未填写班级</small></div></div></div>
+      <div class="section-head"><div><h2>奇境地图</h2><p>先完成藏书阁，再自由探索四关。集齐五枚徽章，开启最终挑战。</p></div></div>
+      <div class="mission-grid" id="missionGrid"></div>
+      <div class="section-head"><div><h2>我的徽章</h2><p>未解锁的徽章会保持灰色。</p></div></div><div class="badge-wall" id="badgeWall"></div>
+<details class="records"><summary>我的学习记录 · 进度保存在当前浏览器</summary>      <div class="status-grid"><div class="status-card"><div class="status-icon" style="background:#e4faf6"><span aria-hidden="true">光</span></div><div><b id="starsStat">0</b><span>累计星星</span></div></div><div class="status-card"><div class="status-icon" style="background:#fff5d8"><span aria-hidden="true">章</span></div><div><b id="badgesStat">0 / 7</b><span>已获徽章</span></div></div><div class="status-card"><div class="status-icon" style="background:#ebe7ff">✓</div><div><b id="masteryStat">0 / 53</b><span>完全掌握</span></div></div></div>
+</details>
+    </section>
+    <section id="gameView" class="view hidden"><div class="game-shell"><button class="back" data-home>← 返回任务首页</button><div class="game-head"><div><h2 id="gameTitle">挑战</h2><div id="gameSubtitle" style="color:var(--muted);margin-top:4px"></div></div><div class="round-count" id="roundCount">1 / 6</div></div><div class="q-progress"><span id="qBar"></span></div><div class="question-card" id="questionCard"></div></div></section>
+    <section id="cardsView" class="view hidden"><div class="game-shell" style="max-width:850px"><button class="back" data-home>← 返回任务首页</button><div class="section-head" style="margin-top:0"><div><h2>词语学习卡</h2><p>每张卡都要翻到背面看一次，才算完成学习。</p></div></div><div class="cards-panel"><div class="card-progress-head"><span id="cardNumber">第1个，共53个</span><span id="cardSeenCount">已学习0 / 53</span></div><div class="q-progress"><span id="cardBar"></span></div><div class="study-stage" id="studyStage"></div><div class="study-nav"><button class="prev" id="prevCard">← 上一个</button><span class="seen-check" id="seenCheck">尚未翻看</span><button class="next" id="nextCard">下一个 →</button></div><div class="complete-study hidden" id="completeStudy"><button class="primary" id="finishStudy">完成学习并返回主页</button></div></div></div></section>
+  </main>
+  <div class="modal hidden" id="profileModal"><div class="modal-card"><h2 id="profileTitle">先填写学习资料</h2><p class="muted-note" id="profileNote">资料只保存在这部设备中，并会印在你下载的徽章上。</p><div class="field"><label for="nameInput">姓名</label><input id="nameInput" maxlength="20" placeholder="例如：陈小明"></div><div class="form-row"><div class="field"><label for="classInput">班级</label><input id="classInput" maxlength="12" placeholder="例如：2G3"></div><div class="field"><label for="indexInput">学号（选填）</label><input id="indexInput" maxlength="5" inputmode="numeric" placeholder="例如：12"></div></div><button class="primary" id="saveProfile">保存并开始</button><button class="secondary" id="cancelProfile" style="width:100%;margin-top:10px" onclick="cancelProfileEntry()">返回</button></div></div>
+<div class="modal hidden" id="playerChoiceModal" role="dialog" aria-modal="true" aria-labelledby="playerChoiceTitle"><div class="modal-card"><h2 id="playerChoiceTitle">谁来冒险？</h2><p class="muted-note">继续上次的旅程，或换一位同学。</p><p id="lastPlayerName" class="last-player"></p><button class="primary" id="continuePlayer" onclick="continueLastPlayer()">继续上次的用户</button><button class="secondary" style="width:100%;margin-top:12px" onclick="openNewPlayer()">使用新的用户</button><p class="muted-note">每位同学的进度分别保存在当前浏览器。</p></div></div>
+<div class="modal hidden" id="settingsModal" role="dialog" aria-modal="true" aria-labelledby="settingsTitle"><div class="modal-card"><h2 id="settingsTitle"><img class="settings-icon" src="assets/icons/icon-settings.png" alt="">游戏设置</h2><button class="secondary settings-profile" onclick="openProfile()">修改用户资料</button><div class="audio-setting"><div><strong>背景音乐</strong><small>轻柔的场景配乐</small></div><button class="audio-switch" id="musicSetting" role="switch" aria-label="背景音乐" onclick="toggleGameAudio('music')"></button></div><div class="audio-setting"><div><strong>音效</strong><small>控制游戏提示音</small></div><button class="audio-switch" id="soundSetting" role="switch" aria-label="音效" onclick="toggleGameAudio('sound')"></button></div><button class="primary" onclick="closeGameSettings()">完成</button></div></div>
+  <div class="modal hidden" id="unlockModal"><div class="modal-card unlock-card"><i class="spark"></i><i class="spark"></i><i class="spark"></i><i class="spark"></i><div class="unlock-medal" id="unlockMedal"><div id="unlockSymbol">拼</div></div><h2>新徽章已解锁！</h2><h3 id="unlockName"></h3><p id="unlockMessage" class="muted-note"></p><button class="primary" id="downloadBadge">下载我的徽章</button><button class="secondary" id="closeUnlock" style="width:100%;margin-top:9px">继续挑战</button></div></div>
+  <div class="modal hidden" id="resultModal"><div class="modal-card result"><img class="reward-art" src="assets/icons/icon-star-earned.png" alt=""><h2>完成一局！</h2><div class="result-score" id="resultScore">6 / 6</div><div id="roundStars" class="round-stars" aria-label="本局星星"></div><p id="resultText"></p><p class="cloud-inline" data-cloud-status aria-live="polite"></p><div class="result-actions"><button class="primary" id="playAgain" style="margin:0">再玩一局</button><button class="secondary" id="resultHome">返回首页</button></div><button class="secondary" id="resultRankBtn">查看排行榜</button></div></div>
+  <script>
+  const WORDS=[
+  {
+    "w": "自卑",
+    "p": "zì bēi",
+    "m": "自己瞧不起自己，认为自己不如别人",
+    "e": "feel inferior; lack self-confidence",
+    "s": "他因为口语不好而感到自卑，不敢在全班面前发言。"
+  },
+  {
+    "w": "羡慕",
+    "p": "xiàn mù",
+    "m": "看到别人的优点或有利条件，希望自己也能拥有",
+    "e": "admire; envy",
+    "s": "同学们都很羡慕她能代表学校参加比赛。"
+  },
+  {
+    "w": "毅力",
+    "p": "yì lì",
+    "m": "持久而坚定的意志",
+    "e": "perseverance; determination",
+    "s": "只要有毅力，坚持练习，就能看到进步。"
+  },
+  {
+    "w": "茫然",
+    "p": "máng rán",
+    "m": "完全不知道该怎么办或不明白的样子",
+    "e": "at a loss; bewildered",
+    "s": "老师突然点名时，他一脸茫然，不知道发生了什么事。"
+  },
+  {
+    "w": "嫌",
+    "p": "xián",
+    "m": "厌恶或感到不满",
+    "e": "dislike; complain about",
+    "s": "弟弟嫌天气太热，不愿意出门。"
+  },
+  {
+    "w": "憋",
+    "p": "biē",
+    "m": "极力忍住，不让情绪或感觉表现出来",
+    "e": "hold back; suppress",
+    "s": "他憋着笑，免得打扰正在发言的同学。"
+  },
+  {
+    "w": "委婉",
+    "p": "wěi wǎn",
+    "m": "说话含蓄、不生硬",
+    "e": "tactful; indirect",
+    "s": "老师委婉地指出了他的错误。"
+  },
+  {
+    "w": "彻底",
+    "p": "chè dǐ",
+    "m": "深入而全面，没有遗漏",
+    "e": "thorough; complete",
+    "s": "我们要彻底清理课室里的垃圾。"
+  },
+  {
+    "w": "恐惧",
+    "p": "kǒng jù",
+    "m": "害怕、畏惧",
+    "e": "fear",
+    "s": "她终于克服了对黑暗的恐惧。"
+  },
+  {
+    "w": "颤抖",
+    "p": "chàn dǒu",
+    "m": "身体因寒冷、害怕或激动而发抖",
+    "e": "tremble; shiver",
+    "s": "他站在冷风中，身体不停地颤抖。"
+  },
+  {
+    "w": "隐约",
+    "p": "yǐn yuē",
+    "m": "看起来或听起来不很清楚",
+    "e": "faintly; vaguely",
+    "s": "我隐约听见有人在门外叫我的名字。"
+  },
+  {
+    "w": "惊悚",
+    "p": "jīng sǒng",
+    "m": "使人感到惊慌和恐惧",
+    "e": "frightening; suspenseful",
+    "s": "这部惊悚电影的气氛十分紧张。"
+  },
+  {
+    "w": "恐怖",
+    "p": "kǒng bù",
+    "m": "可怕，使人非常害怕",
+    "e": "terrifying; scary",
+    "s": "夜里传来的怪声让人觉得很恐怖。"
+  },
+  {
+    "w": "通宵",
+    "p": "tōng xiāo",
+    "m": "整夜不睡或整夜进行某件事",
+    "e": "stay up all night; throughout the night",
+    "s": "为了身体健康，我们不应该通宵玩游戏。"
+  },
+  {
+    "w": "和谐",
+    "p": "hé xié",
+    "m": "配合得适当，关系融洽",
+    "e": "harmonious",
+    "s": "不同种族的居民在社区里和谐相处。"
+  },
+  {
+    "w": "敏感",
+    "p": "mǐn gǎn",
+    "m": "对外界事物反应很快，也指容易引起关注或争议",
+    "e": "sensitive",
+    "s": "这是一个比较敏感的话题，说话时要多加注意。"
+  },
+  {
+    "w": "缺陷",
+    "p": "quē xiàn",
+    "m": "不完善或不健全的地方",
+    "e": "defect; flaw",
+    "s": "这个设计还有一些缺陷，需要进一步改进。"
+  },
+  {
+    "w": "拘束",
+    "p": "jū shù",
+    "m": "过分约束自己，显得不自然",
+    "e": "reserved; ill at ease",
+    "s": "第一次参加交流活动时，他显得有些拘束。"
+  },
+  {
+    "w": "嘈杂",
+    "p": "cáo zá",
+    "m": "声音杂乱、吵闹",
+    "e": "noisy",
+    "s": "食堂里十分嘈杂，我听不清朋友在说什么。"
+  },
+  {
+    "w": "若有所思",
+    "p": "ruò yǒu suǒ sī",
+    "m": "好像在思考问题",
+    "e": "thoughtful; pensive",
+    "s": "听完老师的话，他若有所思地点了点头。"
+  },
+  {
+    "w": "沮丧",
+    "p": "jǔ sàng",
+    "m": "灰心丧气，情绪低落",
+    "e": "depressed; dejected",
+    "s": "比赛失利后，他虽然沮丧，却没有放弃。"
+  },
+  {
+    "w": "模糊",
+    "p": "mó hu",
+    "m": "不清楚、不分明",
+    "e": "blurred; unclear",
+    "s": "雨太大了，远处的建筑看起来十分模糊。"
+  },
+  {
+    "w": "简陋",
+    "p": "jiǎn lòu",
+    "m": "简单粗陋，条件或设备不完善",
+    "e": "simple and crude; poorly equipped",
+    "s": "虽然设备简陋，队员们仍认真完成训练。"
+  },
+  {
+    "w": "蓬勃",
+    "p": "péng bó",
+    "m": "兴旺而有活力",
+    "e": "vigorous; flourishing",
+    "s": "新加坡的科技产业正在蓬勃发展。"
+  },
+  {
+    "w": "富裕",
+    "p": "fù yù",
+    "m": "财物充足，生活宽裕",
+    "e": "well-off; prosperous",
+    "s": "这个家庭并不富裕，却常常帮助有需要的人。"
+  },
+  {
+    "w": "与时俱进",
+    "p": "yǔ shí jù jìn",
+    "m": "跟随时代发展，不断进步",
+    "e": "keep pace with the times",
+    "s": "教学方法也要与时俱进，善用新的科技工具。"
+  },
+  {
+    "w": "障碍",
+    "p": "zhàng ài",
+    "m": "阻挡前进的事物或困难",
+    "e": "obstacle; barrier",
+    "s": "语言不应该成为彼此交流的障碍。"
+  },
+  {
+    "w": "驰名",
+    "p": "chí míng",
+    "m": "声名远扬，非常有名",
+    "e": "famous; well-known",
+    "s": "新加坡的樟宜机场驰名世界。"
+  },
+  {
+    "w": "屡次",
+    "p": "lǚ cì",
+    "m": "多次，一次又一次",
+    "e": "repeatedly; time and again",
+    "s": "他屡次忘记带作业，老师提醒他要养成好习惯。"
+  },
+  {
+    "w": "开辟",
+    "p": "kāi pì",
+    "m": "打开通路或开创新的领域",
+    "e": "open up; blaze a trail",
+    "s": "新建的地铁线为居民开辟了更方便的交通路线。"
+  },
+  {
+    "w": "荣誉",
+    "p": "róng yù",
+    "m": "光荣的名誉",
+    "e": "honour",
+    "s": "能为学校赢得荣誉，队员们都感到十分自豪。"
+  },
+  {
+    "w": "接触",
+    "p": "jiē chù",
+    "m": "接近并交往，或碰到、涉及",
+    "e": "come into contact with",
+    "s": "参加这个活动后，我有机会接触不同领域的知识。"
+  },
+  {
+    "w": "温馨",
+    "p": "wēn xīn",
+    "m": "温暖而令人感到亲切",
+    "e": "warm and cosy",
+    "s": "一家人围在桌旁吃饭，画面十分温馨。"
+  },
+  {
+    "w": "欣赏",
+    "p": "xīn shǎng",
+    "m": "以喜悦的心情领略美好事物，也指赞赏",
+    "e": "appreciate; admire",
+    "s": "我们在滨海湾欣赏美丽的夜景。"
+  },
+  {
+    "w": "粗糙",
+    "p": "cū cāo",
+    "m": "不精细、不光滑",
+    "e": "rough; coarse",
+    "s": "这块木板的表面很粗糙，搬动时要小心。"
+  },
+  {
+    "w": "同甘共苦",
+    "p": "tóng gān gòng kǔ",
+    "m": "共同享受欢乐，共同承担苦难",
+    "e": "share joys and hardships",
+    "s": "队员们一起训练、一起面对困难，真正做到了同甘共苦。"
+  },
+  {
+    "w": "心旷神怡",
+    "p": "xīn kuàng shén yí",
+    "m": "心情舒畅，精神愉快",
+    "e": "relaxed and happy; refreshed",
+    "s": "站在山顶欣赏开阔的景色，令人心旷神怡。"
+  },
+  {
+    "w": "无怨无悔",
+    "p": "wú yuàn wú huǐ",
+    "m": "没有怨言，也不后悔",
+    "e": "without complaint or regret",
+    "s": "她无怨无悔地照顾年迈的父母。"
+  },
+  {
+    "w": "寻找",
+    "p": "xún zhǎo",
+    "m": "为了找到而去查找",
+    "e": "look for; search for",
+    "s": "警方正在寻找走失的老人。"
+  },
+  {
+    "w": "流逝",
+    "p": "liú shì",
+    "m": "像流水一样消逝",
+    "e": "pass; elapse",
+    "s": "随着时间流逝，许多往事渐渐被人遗忘。"
+  },
+  {
+    "w": "嬉戏",
+    "p": "xī xì",
+    "m": "快乐地游戏、玩耍",
+    "e": "play; frolic",
+    "s": "孩子们在公园里快乐地嬉戏。"
+  },
+  {
+    "w": "寄托",
+    "p": "jì tuō",
+    "m": "把理想、希望或感情放在某人或某物上",
+    "e": "place one's hopes or feelings in",
+    "s": "父母把希望寄托在孩子身上，也应该尊重他们的选择。"
+  },
+  {
+    "w": "鲜艳",
+    "p": "xiān yàn",
+    "m": "颜色明亮而艳丽",
+    "e": "bright-coloured; vivid",
+    "s": "花园里开满了颜色鲜艳的花朵。"
+  },
+  {
+    "w": "仪式",
+    "p": "yí shì",
+    "m": "按照一定程序举行的礼仪活动",
+    "e": "ceremony",
+    "s": "全校师生参加了庄严的升旗仪式。"
+  },
+  {
+    "w": "秉持",
+    "p": "bǐng chí",
+    "m": "坚持并持有某种理念或态度",
+    "e": "uphold; maintain",
+    "s": "学校一直秉持尊重与关爱的教育理念。"
+  },
+  {
+    "w": "高瞻远瞩",
+    "p": "gāo zhān yuǎn zhǔ",
+    "m": "眼光远大，能为长远发展作打算",
+    "e": "far-sighted; look far ahead",
+    "s": "领导者需要高瞻远瞩，为未来作好规划。"
+  },
+  {
+    "w": "得天独厚",
+    "p": "dé tiān dú hòu",
+    "m": "具备特别优越的条件",
+    "e": "naturally advantaged; richly endowed",
+    "s": "新加坡地理位置得天独厚，自古就是重要的贸易枢纽。"
+  },
+  {
+    "w": "挖掘",
+    "p": "wā jué",
+    "m": "往深处挖，也比喻深入发现事物的价值",
+    "e": "dig; explore; uncover",
+    "s": "这次专题作业让我们进一步挖掘本地文化的特色。"
+  },
+  {
+    "w": "陆续",
+    "p": "lù xù",
+    "m": "一个接一个，先后不断地",
+    "e": "one after another; in succession",
+    "s": "铃声响后，学生们陆续走进礼堂。"
+  },
+  {
+    "w": "赋予",
+    "p": "fù yǔ",
+    "m": "给予或交给某种意义、价值或任务",
+    "e": "give; endow with",
+    "s": "阅读赋予我们知识，也让我们看见不同的世界。"
+  },
+  {
+    "w": "步伐",
+    "p": "bù fá",
+    "m": "行走时的脚步，也比喻事情进行的速度",
+    "e": "step; pace",
+    "s": "运动员迈着整齐的步伐走进体育场。"
+  },
+  {
+    "w": "询问",
+    "p": "xún wèn",
+    "m": "向别人提出问题或征求意见",
+    "e": "ask; enquire",
+    "s": "不清楚作业要求时，可以主动询问老师。"
+  },
+  {
+    "w": "人云亦云",
+    "p": "rén yún yì yún",
+    "m": "别人说什么，自己也跟着说什么，形容没有主见",
+    "e": "echo others; follow others blindly",
+    "s": "面对网络消息，我们应先查证，不要人云亦云。"
+  }
+];
+  const MISSION_SENTENCES={
+  "自卑": {
+    "pinyin": "小杰不必因为成绩暂时落后而自卑。",
+    "context": "她总觉得自己不如别人，因此有些自卑。",
+    "exam": "老师鼓励他勇敢发言，不要因为口音而自卑。"
+  },
+  "羡慕": {
+    "pinyin": "弟弟很羡慕哥哥能参加机器人比赛。",
+    "context": "看到朋友获奖，他十分羡慕，也决定更加努力。",
+    "exam": "我很羡慕她能用流利的华语表达想法。"
+  },
+  "毅力": {
+    "pinyin": "完成长跑训练需要很大的毅力。",
+    "context": "他凭着坚强的毅力，坚持完成了艰难的任务。",
+    "exam": "学习遇到困难时，我们要有毅力，不能轻易放弃。"
+  },
+  "茫然": {
+    "pinyin": "面对陌生的题目，他茫然地看着老师。",
+    "context": "大家都知道下一步做什么，只有他一脸茫然。",
+    "exam": "听到计划突然改变，同学们感到十分茫然。"
+  },
+  "嫌": {
+    "pinyin": "妹妹嫌这双鞋太重，不肯穿。",
+    "context": "他嫌路程太远，所以决定不参加活动。",
+    "exam": "弟弟嫌饭菜太辣，只吃了几口。"
+  },
+  "憋": {
+    "pinyin": "他憋住眼泪，不想让同学担心。",
+    "context": "听到有趣的笑话，她憋着笑不出声。",
+    "exam": "有问题就说出来，不要一直憋在心里。"
+  },
+  "委婉": {
+    "pinyin": "班长委婉地提醒同学降低音量。",
+    "context": "为了不让朋友难过，她用委婉的语气提出建议。",
+    "exam": "拒绝别人时，我们可以说得委婉一些。"
+  },
+  "彻底": {
+    "pinyin": "周末我们把课室彻底打扫了一遍。",
+    "context": "经过多次检查，技术人员终于彻底解决了问题。",
+    "exam": "要改掉坏习惯，就必须彻底改变自己的做法。"
+  },
+  "恐惧": {
+    "pinyin": "他深呼吸，让自己慢慢战胜恐惧。",
+    "context": "小孩看到大狗时，眼中露出恐惧。",
+    "exam": "经过多次练习，她不再恐惧上台演讲。"
+  },
+  "颤抖": {
+    "pinyin": "老人冷得双手不停颤抖。",
+    "context": "他第一次上台表演，紧张得声音都有些颤抖。",
+    "exam": "听到巨响后，小猫吓得浑身颤抖。"
+  },
+  "隐约": {
+    "pinyin": "清晨的雾中，远处的高楼隐约可见。",
+    "context": "隔着门，我隐约听见里面有人说话。",
+    "exam": "天色渐暗，我们只能隐约看见前方的小路。"
+  },
+  "惊悚": {
+    "pinyin": "哥哥不敢独自观看惊悚电影。",
+    "context": "这部小说情节紧张，充满惊悚气氛。",
+    "exam": "导演用灯光和音乐营造出惊悚的效果。"
+  },
+  "恐怖": {
+    "pinyin": "那间废弃的房子看起来十分恐怖。",
+    "context": "突然响起的尖叫声让整个场面变得很恐怖。",
+    "exam": "妹妹害怕恐怖故事，睡前从来不听。"
+  },
+  "通宵": {
+    "pinyin": "他为了完成作品，昨晚几乎通宵没睡。",
+    "context": "考试前通宵温习会让第二天精神不振。",
+    "exam": "医生提醒我们不要经常通宵，要保持充足睡眠。"
+  },
+  "和谐": {
+    "pinyin": "班上的同学互相帮助，相处得十分和谐。",
+    "context": "大家愿意尊重彼此，才能建立和谐的社区。",
+    "exam": "这幅画的颜色搭配得很和谐。"
+  },
+  "敏感": {
+    "pinyin": "这个问题比较敏感，不适合随便开玩笑。",
+    "context": "她的皮肤很敏感，不能使用刺激性太强的产品。",
+    "exam": "记者处理敏感话题时必须特别谨慎。"
+  },
+  "缺陷": {
+    "pinyin": "工程师发现产品有缺陷，立刻停止出售。",
+    "context": "这项计划虽然不错，但仍有一些缺陷需要改善。",
+    "exam": "我们应该正视自己的缺陷，并努力进步。"
+  },
+  "拘束": {
+    "pinyin": "刚到新班级时，他显得有些拘束。",
+    "context": "熟悉大家以后，她不再拘束，开始主动交谈。",
+    "exam": "主人亲切地招呼客人，让大家不要拘束。"
+  },
+  "嘈杂": {
+    "pinyin": "巴刹里人声嘈杂，十分热闹。",
+    "context": "外面太嘈杂了，我无法专心温习。",
+    "exam": "图书馆需要安静，不应该像食堂一样嘈杂。"
+  },
+  "若有所思": {
+    "pinyin": "听完这个故事，他若有所思地望着窗外。",
+    "context": "老师提出问题后，小文若有所思，没有马上回答。",
+    "exam": "她看完那封信，露出若有所思的表情。"
+  },
+  "沮丧": {
+    "pinyin": "因为没有被选中，他感到十分沮丧。",
+    "context": "即使考试成绩不理想，也不要一直沮丧。",
+    "exam": "球队最后一分钟失分，队员们都很沮丧。"
+  },
+  "模糊": {
+    "pinyin": "这张旧照片已经变得十分模糊。",
+    "context": "雨水打在车窗上，外面的景物看起来很模糊。",
+    "exam": "他没有听清楚，所以对活动安排的印象很模糊。"
+  },
+  "简陋": {
+    "pinyin": "这间小屋设备简陋，却收拾得很整齐。",
+    "context": "虽然实验室十分简陋，学生仍完成了研究。",
+    "exam": "早期居民住在简陋的木屋里，生活并不容易。"
+  },
+  "蓬勃": {
+    "pinyin": "雨季过后，园里的植物蓬勃生长。",
+    "context": "在政府支持下，本地旅游业蓬勃发展。",
+    "exam": "青年积极参与，为社区注入蓬勃活力。"
+  },
+  "富裕": {
+    "pinyin": "他们生活并不富裕，却愿意帮助邻居。",
+    "context": "经过多年努力，这个小镇逐渐变得富裕。",
+    "exam": "这个国家资源丰富，人民生活也较为富裕。"
+  },
+  "与时俱进": {
+    "pinyin": "学校不断更新设备，让教学与时俱进。",
+    "context": "商家必须与时俱进，才能满足顾客的新需求。",
+    "exam": "我们在保留传统文化的同时，也要与时俱进。"
+  },
+  "障碍": {
+    "pinyin": "施工中的围栏成了行人前进的障碍。",
+    "context": "只要愿意沟通，语言不会成为友谊的障碍。",
+    "exam": "他努力克服学习上的障碍，终于取得进步。"
+  },
+  "驰名": {
+    "pinyin": "这家餐馆的海南鸡饭驰名海外。",
+    "context": "这座古城以美丽的建筑而驰名。",
+    "exam": "新加坡植物园历史悠久，驰名世界。"
+  },
+  "屡次": {
+    "pinyin": "他屡次违反班规，老师决定联系家长。",
+    "context": "虽然屡次失败，她仍继续尝试。",
+    "exam": "这位运动员屡次打破纪录，表现出色。"
+  },
+  "开辟": {
+    "pinyin": "工人正在山间开辟一条新的道路。",
+    "context": "科技的发展为学习开辟了更多可能。",
+    "exam": "前辈努力开辟市场，为公司带来新的机会。"
+  },
+  "荣誉": {
+    "pinyin": "她把这枚奖牌视为珍贵的荣誉。",
+    "context": "队员努力比赛，希望为学校赢得荣誉。",
+    "exam": "获得这项荣誉后，他仍然保持谦虚。"
+  },
+  "接触": {
+    "pinyin": "参加实习让我接触到真实的工作环境。",
+    "context": "阅读不同作品能让我们接触多元的文化。",
+    "exam": "使用化学药品时，要避免让皮肤直接接触。"
+  },
+  "温馨": {
+    "pinyin": "客厅里的灯光柔和，气氛十分温馨。",
+    "context": "孩子送给母亲一张卡片，场面很温馨。",
+    "exam": "这家小店布置简单，却给人温馨的感觉。"
+  },
+  "欣赏": {
+    "pinyin": "老师带我们到美术馆欣赏作品。",
+    "context": "我很欣赏他遇到困难时仍保持冷静的态度。",
+    "exam": "游客坐在河边欣赏日落。"
+  },
+  "粗糙": {
+    "pinyin": "这面墙的表面很粗糙，摸起来不平。",
+    "context": "他的手因为长期劳动而变得粗糙。",
+    "exam": "这件手工品还很粗糙，需要继续修整。"
+  },
+  "同甘共苦": {
+    "pinyin": "创业初期，他们互相支持、同甘共苦。",
+    "context": "真正的朋友会在困难时与你同甘共苦。",
+    "exam": "队员们多年同甘共苦，终于赢得冠军。"
+  },
+  "心旷神怡": {
+    "pinyin": "清新的空气和美丽的湖景令人心旷神怡。",
+    "context": "走进绿意盎然的公园，我顿时感到心旷神怡。",
+    "exam": "站在海边吹着凉风，让人心旷神怡。"
+  },
+  "无怨无悔": {
+    "pinyin": "她选择成为义工，多年来无怨无悔。",
+    "context": "父母无怨无悔地照顾和支持孩子。",
+    "exam": "他为理想付出许多，始终无怨无悔。"
+  },
+  "寻找": {
+    "pinyin": "同学们正在图书馆寻找有关历史的资料。",
+    "context": "小女孩和家人走散后，保安帮她寻找父母。",
+    "exam": "我们应该主动寻找解决问题的方法。"
+  },
+  "流逝": {
+    "pinyin": "美好的假期随着时间流逝，很快结束了。",
+    "context": "光阴不断流逝，我们应该珍惜每一天。",
+    "exam": "随着岁月流逝，这条街道有了很大的变化。"
+  },
+  "嬉戏": {
+    "pinyin": "小狗在草地上互相追逐嬉戏。",
+    "context": "孩子们在浅水区快乐地嬉戏。",
+    "exam": "下课后，同学们在操场上嬉戏玩耍。"
+  },
+  "寄托": {
+    "pinyin": "她把对家乡的思念寄托在歌声中。",
+    "context": "父亲把希望寄托在下一代身上。",
+    "exam": "这份礼物寄托了我对朋友的祝福。"
+  },
+  "鲜艳": {
+    "pinyin": "舞台上的服装色彩鲜艳，十分吸引人。",
+    "context": "春天到了，公园里开满鲜艳的花朵。",
+    "exam": "她穿着一件颜色鲜艳的外套。"
+  },
+  "仪式": {
+    "pinyin": "颁奖仪式将在学校礼堂举行。",
+    "context": "新成员在欢迎仪式上认识了彼此。",
+    "exam": "升旗仪式开始时，全体师生肃立。"
+  },
+  "秉持": {
+    "pinyin": "这家公司一直秉持顾客至上的理念。",
+    "context": "无论面对什么困难，医生都秉持救人的信念。",
+    "exam": "学校秉持有教无类的精神，关心每一名学生。"
+  },
+  "高瞻远瞩": {
+    "pinyin": "这项城市规划十分高瞻远瞩，考虑到未来需要。",
+    "context": "一位高瞻远瞩的领导者会提前为变化作准备。",
+    "exam": "前人的高瞻远瞩，为国家发展打下了基础。"
+  },
+  "得天独厚": {
+    "pinyin": "这里气候适宜，拥有发展农业的得天独厚条件。",
+    "context": "新加坡位于重要航线上，地理位置得天独厚。",
+    "exam": "这座海岛拥有得天独厚的自然景观。"
+  },
+  "挖掘": {
+    "pinyin": "考古人员在地下挖掘出古代文物。",
+    "context": "老师鼓励我们挖掘自己的潜能。",
+    "exam": "记者通过采访，深入挖掘事件背后的原因。"
+  },
+  "陆续": {
+    "pinyin": "演出结束后，观众陆续离开剧场。",
+    "context": "上课铃响前，同学们陆续回到座位。",
+    "exam": "春节临近，商店陆续推出节日商品。"
+  },
+  "赋予": {
+    "pinyin": "这次经历赋予了他面对困难的勇气。",
+    "context": "不同的颜色可以赋予作品不同的感觉。",
+    "exam": "社会赋予每个人权利，也要求大家承担责任。"
+  },
+  "步伐": {
+    "pinyin": "仪仗队迈着整齐的步伐前进。",
+    "context": "我们要加快改革的步伐，跟上时代变化。",
+    "exam": "老人放慢步伐，小心地走下楼梯。"
+  },
+  "询问": {
+    "pinyin": "游客向工作人员询问去地铁站的路线。",
+    "context": "如果听不懂说明，可以举手询问老师。",
+    "exam": "警察正在向目击者询问当时的情况。"
+  },
+  "人云亦云": {
+    "pinyin": "阅读新闻后要独立思考，不可人云亦云。",
+    "context": "他没有查清事实就跟着别人说，真是人云亦云。",
+    "exam": "面对不同意见，我们要有判断力，不能人云亦云。"
+  }
+};
+  const MISSIONS=[
+    {id:'cards',name:'词语探索家',symbol:'学',desc:'学习拼音、解释、英文和简单例句。',color:'#1967d2'},
+    {id:'pinyin',name:'拼音小达人',symbol:'拼',desc:'看拼音和句子，选出正确词语。',color:'#19a7a0'},
+    {id:'meaning',name:'词义解码师',symbol:'义',desc:'看简单解释，找出正确词语。',color:'#f59e0b'},
+    {id:'context',name:'语境应用家',symbol:'用',desc:'读懂句子，选出最合适的词语。',color:'#ef476f'},
+    {id:'detective',name:'词语侦探',symbol:'侦',desc:'找出机器人写错的词语或拼音。',color:'#7b61ff'},
+    {id:'exam',name:'词语闯关王',symbol:'试',desc:'混合三种考试题型的短局挑战。',color:'#137c8b'}
+  ];
+  const SECRET={id:'secret',name:'词语全能大师',symbol:'冠',color:'#ffb703'};
+  const KEY='bgss_wordmaster_v1';
+  const fresh=()=>({version:3,profile:{name:'',className:'',index:''},stars:0,seen:[],wrong:{},missions:Object.fromEntries(MISSIONS.map(m=>[m.id,{rounds:0,correct:0,total:0,covered:[],earned:false,queue:[]}]))});
+  let state=load(),active=null,questions=[],qIndex=0,score=0,roundPoints=0,attempts=0,pendingUnlock=null,cardIndex=0;
+  function load(){try{return Object.assign(fresh(),JSON.parse(localStorage.getItem(KEY)||'{}'))}catch{return fresh()}}
+  function normalize(){const f=fresh(),oldVersion=state.version||1;state.profile=Object.assign(f.profile,state.profile||{});state.missions=state.missions||{};MISSIONS.forEach(m=>state.missions[m.id]=Object.assign(f.missions[m.id],state.missions[m.id]||{}));state.seen=state.seen||[];state.wrong=state.wrong||{};state.stars=state.stars||0;if(oldVersion<2){state.seen=[];state.missions.cards.earned=false}if(oldVersion<3){['cards','pinyin','meaning','context'].forEach(id=>state.missions[id].earned=false);state.secretShown=false}state.version=3}normalize();
+  function save(){persistLocalPlayer(state)}function shuffle(a){return [...a].sort(()=>Math.random()-.5)}
+  function esc(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+  function speak(text){if(!('speechSynthesis'in window))return; speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(text);u.lang='zh-CN';u.rate=.75;const restoreMusic=duckGameMusic();u.onend=restoreMusic;u.onerror=restoreMusic;speechSynthesis.speak(u)}
+  function wordLength(s){return [...s].length}
+  function optionsFor(target,field='w'){const same=shuffle(WORDS.filter(x=>x.w!==target.w&&wordLength(x.w)===wordLength(target.w)));const others=shuffle(WORDS.filter(x=>x.w!==target.w&&!same.includes(x)));let picks=[];if(same.length)picks.push(same[0]);else if(target.w==='撇')picks.push({w:'捺',p:'nà',m:'汉字笔画“㇏”。'});picks.push(...others.filter(x=>!picks.includes(x)).slice(0,2-picks.length));return shuffle([target,...picks]).map(x=>x[field])}
+  function missionProgress(id){if(id==='cards')return Math.round(state.seen.length/WORDS.length*100);const m=state.missions[id];if(id==='exam')return Math.min(100,m.rounds*25);const coverage=Math.min(1,m.covered.length/WORDS.length);const accuracy=m.total?m.correct/m.total:0;return Math.round(coverage*75+Math.min(1,accuracy/.7)*25)}
+  function badgeEarned(id){return state.missions[id]?.earned===true}
+  function missionAvailable(id){if(id==='cards')return true;if(id==='exam')return MISSIONS.slice(0,5).every(m=>badgeEarned(m.id));return ['pinyin','meaning','context','detective'].includes(id)&&badgeEarned('cards')}
+  function missionLockMessage(id){return id==='exam'?'集齐前五枚徽章，就能开启最后的挑战。':'先翻看藏书阁全部53张词语卡并获得徽章，就能自由探索这四关。'}
+  function allEarned(){return MISSIONS.every(m=>badgeEarned(m.id))}
+  function completeMastery(){return WORDS.filter(w=>['pinyin','meaning','context'].every(id=>state.missions[id].covered.includes(w.w))).length}
+  function renderHome(){window.WordlightCloud?.leave();leaveRoom();document.querySelectorAll('.view').forEach(v=>v.classList.add('hidden'));homeView.classList.remove('hidden');studentName.textContent=state.profile.name||'同学';studentClass.textContent=state.profile.className||'尚未填写班级';avatar.textContent=(state.profile.name||'同')[0];greeting.textContent=timeGreeting();starsStat.textContent=state.stars;badgesStat.textContent=`${MISSIONS.filter(m=>badgeEarned(m.id)).length+(allEarned()?1:0)} / 7`;masteryStat.textContent=`${completeMastery()} / ${WORDS.length}`;
+    renderAdventureMap();renderBadgeGallery();}
+  function timeGreeting(){const h=new Date().getHours();return h<12?'早上好':h<18?'下午好':'晚上好'}
+  function pickWords(id,n=6){const m=state.missions[id];let queue=(m.queue||[]).filter(w=>WORDS.some(x=>x.w===w));if(queue.length<n){const prioritized=shuffle(WORDS).sort((a,b)=>(state.wrong[b.w]||0)-(state.wrong[a.w]||0));const unseen=prioritized.filter(x=>!m.covered.includes(x.w)).map(x=>x.w);const rest=prioritized.filter(x=>m.covered.includes(x.w)).map(x=>x.w);queue=[...new Set([...queue,...unseen,...rest])]}const chosen=queue.slice(0,n);m.queue=queue.slice(n);return chosen.map(w=>WORDS.find(x=>x.w===w))}
+  const TYPO={
+  "自卑": "自悲",
+  "羡慕": "羡幕",
+  "毅力": "意力",
+  "茫然": "忙然",
+  "嫌": "娴",
+  "憋": "鳖",
+  "委婉": "委宛",
+  "彻底": "彻低",
+  "恐惧": "恐俱",
+  "颤抖": "颤斗",
+  "隐约": "隐跃",
+  "惊悚": "惊耸",
+  "恐怖": "恐布",
+  "通宵": "通霄",
+  "和谐": "合谐",
+  "敏感": "敏敢",
+  "缺陷": "缺馅",
+  "拘束": "拘速",
+  "嘈杂": "曹杂",
+  "若有所思": "若有所丝",
+  "沮丧": "咀丧",
+  "模糊": "摸糊",
+  "简陋": "简漏",
+  "蓬勃": "篷勃",
+  "富裕": "富欲",
+  "与时俱进": "与时具进",
+  "障碍": "障爱",
+  "驰名": "驰明",
+  "屡次": "屡刺",
+  "开辟": "开僻",
+  "荣誉": "荣喻",
+  "接触": "接处",
+  "温馨": "温心",
+  "欣赏": "欣尝",
+  "粗糙": "粗燥",
+  "同甘共苦": "同干共苦",
+  "心旷神怡": "心矿神怡",
+  "无怨无悔": "无愿无悔",
+  "寻找": "寻招",
+  "流逝": "流失",
+  "嬉戏": "嘻戏",
+  "寄托": "寄拖",
+  "鲜艳": "鲜燕",
+  "仪式": "义式",
+  "秉持": "柄持",
+  "高瞻远瞩": "高沾远瞩",
+  "得天独厚": "得天独后",
+  "挖掘": "挖倔",
+  "陆续": "陆继",
+  "赋予": "赋于",
+  "步伐": "步法",
+  "询问": "寻问",
+  "人云亦云": "人云易云"
+};
+  function wrongTone(py){return py.replace(/[āáǎàēéěèīíǐìōóǒòūúǔùǖǘǚǜ]/,c=>({'ā':'á','á':'ǎ','ǎ':'à','à':'a','ē':'é','é':'ě','ě':'è','è':'e','ī':'í','í':'ǐ','ǐ':'ì','ì':'i','ō':'ó','ó':'ǒ','ǒ':'ò','ò':'o','ū':'ú','ú':'ǔ','ǔ':'ù','ù':'u','ǖ':'ǘ','ǘ':'ǚ','ǚ':'ǜ','ǜ':'ü'}[c]||c))}
+  function makeQuestion(word,type,mission=type){
+    const sentence=MISSION_SENTENCES[word.w]?.[mission]||word.s;
+    const blankSentence=sentence.replace(word.w,'______'),spokenSentence=sentence.replace(word.w,'什么');
+    if(type==='pinyin')return{word,type,kicker:'看拼音和句子选词语',prompt:`<div class="pinyin">${word.p}</div>${blankSentence}`,readText:spokenSentence,answer:word.w,opts:optionsFor(word)};
+    if(type==='meaning')return{word,type,kicker:'看解释选词语',prompt:word.m,readText:word.m,answer:word.w,opts:optionsFor(word)};
+    if(type==='context')return{word,type,kicker:'看句子选词语',prompt:blankSentence,readText:spokenSentence,answer:word.w,opts:optionsFor(word)};
+    if(type==='detective'){
+      const modes=TYPO[word.w]?['pinyin','meaning','typo']:['pinyin','meaning'],mode=modes[Math.floor(Math.random()*modes.length)];
+      if(mode==='typo')return{word,type,kicker:'词语侦探 · 错别字',prompt:`根据下面的拼音和意思，选出写法正确的词语。<br><span class="pinyin">${word.p}</span><br>${word.m}`,readText:`根据拼音和意思，选出写法正确的词语。${word.m}`,answer:word.w,opts:shuffle([word.w,TYPO[word.w]]),extra:`正确写法：${word.w}（${word.p}）`};
+      if(mode==='meaning'){const other=shuffle(WORDS.filter(x=>x.w!==word.w))[0],correct=Math.random()>.5,shown=correct?word.m:other.m,review=correct?`<strong>${word.w}（${word.p}）</strong><br>华文解释：${word.m}<br>English: ${word.e}`:`<strong>${word.w}（${word.p}）</strong><br>华文解释：${word.m}<br>English: ${word.e}<br><br><strong>${other.w}（${other.p}）</strong><br>华文解释：${other.m}<br>English: ${other.e}`;return{word,type,kicker:'词语侦探 · 词义',prompt:`“${word.w}”的意思是：<br>${shown}<br>这个解释正确吗？`,readText:`${word.w}的意思是，${shown}。这个解释正确吗？`,answer:correct?'正确':'不正确',opts:['正确','不正确'],extra:`${word.w}（${word.p}）：${word.m}`,review}}
+      const correct=Math.random()>.5,shown=correct?word.p:wrongTone(word.p);return{word,type,kicker:'词语侦探 · 拼音',prompt:`机器人写成：<br><span class="pinyin">${word.w}　${shown}</span><br>这个拼音正确吗？`,readText:`${word.w}的拼音写得正确吗？`,answer:correct?'正确':'不正确',opts:['正确','不正确'],extra:`正确拼音：${word.w}（${word.p}）`}
+    }
+  }
+  function startMission(id){if(!state.profile.name){openProfile();return}if(!missionAvailable(id)){alert(missionLockMessage(id));return}if(id==='cards'){showCards();return}active=id;const types=id==='exam'?shuffle(['pinyin','meaning','context','pinyin','meaning','context']):Array(6).fill(id);const pool=pickWords(id,6);questions=pool.map((w,i)=>makeQuestion(w,types[i],id));qIndex=0;score=0;roundPoints=0;showGame();window.WordlightCloud?.begin(id);renderQuestion()}
+  window.startMission=startMission;
+  function showGame(){enterRoom(active);document.querySelectorAll('.view').forEach(v=>v.classList.add('hidden'));gameView.classList.remove('hidden');const m=MISSIONS.find(x=>x.id===active);gameTitle.textContent=m.name;gameSubtitle.textContent=m.desc}
+  function renderQuestion(){const q=questions[qIndex];attempts=0;roundCount.textContent=`${qIndex+1} / 6`;qBar.style.width=`${qIndex/6*100}%`;questionCard.innerHTML=`<div class="q-kicker">${q.kicker}</div><div class="prompt">${q.prompt} <button class="listen-btn" id="readPrompt"><img src="assets/icons/icon-sound-on.png" alt=""> 听题目</button></div><div class="options">${q.opts.map(o=>`<button class="option" data-answer="${esc(o)}">${esc(o)}</button>`).join('')}</div><div id="feedbackBox"></div>`;readPrompt.onclick=()=>speak(q.readText);questionCard.querySelectorAll('.option').forEach(b=>b.addEventListener('click',()=>answer(b,q)))}
+  window.speak=speak;
+  function selectedClue(chosen){const w=WORDS.find(x=>x.w===chosen);return w?`你选择的“${w.w}”读作 ${w.p}。<br>华文解释：${w.m}<br>English: ${w.e}`:'请再仔细看看题目中的拼音、句子或解释。'}
+  function questionHint(q){if(q.type==='context')return `这里需要的是一个表示“${q.word.m}”的词语。`;if(q.type==='pinyin')return '请再比较题目中的拼音、声调和词语字数。';if(q.type==='meaning')return '请找出和题目解释最接近的词语。';return '请再检查拼音、词义或字形。'}
+  function answer(btn,q){const chosen=btn.dataset.answer,correct=chosen===q.answer,fb=document.getElementById('feedbackBox');attempts++;if(attempts===1)q.firstCorrect=correct;q.finalCorrect=correct;
+    if(correct){score++;roundPoints+=attempts===1?2:1;questionCard.querySelectorAll('.option').forEach(b=>b.disabled=true);btn.classList.add('correct');fb.innerHTML=`<div class="feedback ok">答对了！${q.word.w}（${q.word.p}）：${q.word.m}</div><button class="next-btn" id="nextQ">${qIndex===5?'查看成绩':'下一题'}</button>`;nextQ.onclick=nextQuestion;return}
+    btn.classList.add('wrong');btn.disabled=true;state.wrong[q.word.w]=(state.wrong[q.word.w]||0)+1;
+    if(attempts===1&&q.type!=='detective'){fb.innerHTML=`<div class="feedback no"><strong>还不对，先不要看答案。</strong><br>${selectedClue(chosen)}<br><strong>提示：</strong>${questionHint(q)}<br><strong>你还有一次机会。再试一次，加油！💪😊 你一定行的！</strong></div>`;return}
+    questionCard.querySelectorAll('.option').forEach(b=>b.disabled=true);questionCard.querySelector(`[data-answer="${CSS.escape(q.answer)}"]`)?.classList.add('correct');const review=q.review?`<br><br>${q.review}`:`<br>${q.word.w}（${q.word.p}）<br>华文解释：${q.extra||q.word.m}<br>English: ${q.word.e}`,lead=q.type==='detective'?`正确判断是：${q.answer}。`:`正确答案是：${q.answer}。`;fb.innerHTML=`<div class="feedback no">${lead}${review}</div><button class="next-btn" id="nextQ">${qIndex===5?'查看成绩':'下一题'}</button>`;nextQ.onclick=nextQuestion}
+  function nextQuestion(){qIndex++;if(qIndex<6){renderQuestion();return}finishRound()}
+  function starSvg(filled){return `<svg class="star-shape" viewBox="0 0 64 64" aria-hidden="true"><path d="M32 6.5 39.4 22l17 2.4-12.3 12 2.9 16.9L32 45.4l-15 7.9 2.9-16.9-12.3-12 17-2.4Z" fill="${filled?'#ffd43b':'#ffffff'}" stroke="${filled?'#e6a600':'#17324d'}" stroke-width="${filled?'3':'3.5'}"/></svg>`}
+  function finishRound(){window.WordlightCloud?.round(active,questions);const m=state.missions[active];m.rounds++;m.total+=6;m.correct+=score;questions.forEach(q=>{if(!m.covered.includes(q.word.w))m.covered.push(q.word.w)});const earnedStars=roundPoints>=11?3:roundPoints>=7?2:1;state.stars+=earnedStars;let earnedNow=false;if(active==='exam'||active==='detective'){if(m.rounds>=4&&m.correct/m.total>=.7&&!m.earned){m.earned=true;earnedNow=true}}else if(m.covered.length>=WORDS.length&&m.correct/m.total>=.7&&!m.earned){m.earned=true;earnedNow=true}queueMapJourney(active,earnedNow);save();qBar.style.width='100%';resultScore.textContent=`答对 ${score} / 6`;roundStars.innerHTML=Array.from({length:3},(_,i)=>starSvg(i<earnedStars)).join('');resultText.textContent=earnedStars===3?'本局表现出色，获得3颗星！':earnedStars===2?'有些题第二次才答对，本局获得2颗星。':'你坚持完成了挑战，本局获得1颗星。';resultModal.classList.remove('hidden');pendingUnlock=earnedNow?active:null}
+  function showCards(){window.WordlightCloud?.begin('cards');enterRoom('cards');document.querySelectorAll('.view').forEach(v=>v.classList.add('hidden'));cardsView.classList.remove('hidden');cardIndex=Math.min(cardIndex,WORDS.length-1);renderStudyCard()}
+  function renderStudyCard(){const w=WORDS[cardIndex],seen=state.seen.includes(w.w);cardNumber.textContent=`第 ${cardIndex+1} 个，共${WORDS.length}个`;cardSeenCount.textContent=`已学习 ${state.seen.length} / ${WORDS.length}`;cardBar.style.width=`${state.seen.length/WORDS.length*100}%`;studyStage.innerHTML=`<div class="flip-card" id="flipCard" role="button" tabindex="0" aria-pressed="false" aria-label="翻转${w.w}词语卡"><section class="card-face card-front"><button class="card-speaker" data-speak="${esc(w.w)}" aria-label="朗读词语"><img src="assets/icons/icon-sound-on.png" alt=""></button><div class="study-word">${w.w}</div><div class="flip-hint">点击卡片翻到背面</div></section><section class="card-face card-back" inert aria-hidden="true"><button class="card-speaker" data-speak="${esc(`${w.w}。${w.m}。例句，${w.s}`)}" aria-label="朗读卡片内容"><img src="assets/icons/icon-sound-on.png" alt=""></button><div class="back-pinyin">${w.p}</div><div class="back-meaning">${w.m}</div><div class="back-english">${w.e}</div><div class="back-example">例句：${w.s}</div><div class="flip-hint">点击卡片回到正面</div></section></div>`;const card=document.getElementById('flipCard');const flip=()=>{if(card.classList.contains('is-flipping'))return;const turned=!card.classList.contains('flipped');card.classList.add('is-flipping');card.classList.toggle('flipped',turned);card.setAttribute('aria-pressed',String(turned));card.querySelector('.card-front').inert=turned;card.querySelector('.card-back').inert=!turned;card.querySelector('.card-front').setAttribute('aria-hidden',String(turned));card.querySelector('.card-back').setAttribute('aria-hidden',String(!turned));const settle=()=>{card.classList.remove('is-flipping');if(card.isConnected&&turned)window.WordlightCloud?.card(w.w);if(card.isConnected&&turned&&!state.seen.includes(w.w)){state.seen.push(w.w);save();renderStudyProgress()}};setTimeout(settle,600)};card.onclick=e=>{if(e.target.closest('[data-speak]'))return;flip()};card.onkeydown=e=>{if(e.target!==card)return;if(e.key==='Enter'||e.key===' '){e.preventDefault();flip()}};studyStage.querySelectorAll('[data-speak]').forEach(b=>b.onclick=e=>{e.stopPropagation();speak(b.dataset.speak)});prevCard.disabled=cardIndex===0;nextCard.disabled=cardIndex===WORDS.length-1;renderStudyProgress()}
+  function renderStudyProgress(){const w=WORDS[cardIndex],seen=state.seen.includes(w.w);cardSeenCount.textContent=`已学习 ${state.seen.length} / ${WORDS.length}`;cardBar.style.width=`${state.seen.length/WORDS.length*100}%`;seenCheck.textContent=seen?'✓ 已翻看':'尚未翻看';completeStudy.classList.toggle('hidden',state.seen.length<WORDS.length)}
+  function finishStudyCards(){if(state.seen.length<WORDS.length)return;window.WordlightCloud?.leave();const before=badgeEarned('cards');if(!state.missions.cards.earned)state.missions.cards.earned=true;queueMapJourney('cards',!before);save();if(!before)showUnlock('cards');else renderHome()}
+  function openProfile(){openPlayerEditor()}
+  function saveProfileData(){submitPlayerProfile()}
+  function showUnlock(id){const item=id==='secret'?SECRET:MISSIONS.find(m=>m.id===id);unlockName.textContent=item.name;unlockSymbol.innerHTML=badgeArt(id,100,true);unlockMedal.classList.toggle('secret-reveal',id==='secret');unlockMedal.style.setProperty('--c',item.color);unlockMessage.textContent=id==='secret'?'你已经集齐全部徽章，完成了词语复习之旅！':`恭喜你完成“${item.name}”的通关条件。`;downloadBadge.onclick=()=>downloadNamedBadge(id);unlockModal.classList.remove('hidden');animateBadgeArrival()}
+  function downloadNamedBadge(id){return downloadSceneBadge(id)}
+  window.downloadNamedBadge=downloadNamedBadge;
+  function resetProgress(){if(!confirm('确定要清除所有学习进度、星星和徽章，重新开始吗？姓名和班级会保留。'))return;window.WordlightCloud?.leave();const profile={...state.profile},playerId=state.localPlayerId;state=fresh();state.profile=profile;state.localPlayerId=playerId;resetMapJourney();save();cardIndex=0;renderHome();alert('学习记录已经清零，可以重新挑战了！')}
+  homeBtn.onclick=renderHome;resetBtn.onclick=resetProgress;profileBtn.onclick=openGameSettings;document.querySelectorAll('[data-home]').forEach(b=>b.onclick=renderHome);saveProfile.onclick=saveProfileData;prevCard.onclick=()=>{if(cardIndex>0){cardIndex--;renderStudyCard()}};nextCard.onclick=()=>{if(cardIndex<WORDS.length-1){cardIndex++;renderStudyCard()}};finishStudy.onclick=finishStudyCards;closeUnlock.onclick=()=>{unlockModal.classList.add('hidden');if(allEarned()&&!state.secretShown){state.secretShown=true;save();setTimeout(()=>showUnlock('secret'),250)}else renderHome()};resultHome.onclick=()=>{resultModal.classList.add('hidden');if(pendingUnlock)showUnlock(pendingUnlock);else renderHome()};playAgain.onclick=()=>{resultModal.classList.add('hidden');const id=active;if(pendingUnlock){const unlock=pendingUnlock;pendingUnlock=null;showUnlock(unlock)}else startMission(id)};
+  document.querySelector('.reset-link')?.addEventListener('click',()=>{});profileModal.classList.add('hidden');renderHome();
+  </script>
+<script>
+const opening=document.getElementById('splash');
+const storyOverlay=document.getElementById('storyOverlay');
+// Narration is a separate player: it never pauses, reloads or changes background music.
+const storyReading=new Audio('assets/sounds/story-reading.mp3');
+storyReading.preload='auto';storyReading.loop=false;storyReading.volume=1;storyReading.load();
+let resumeStoryReading=false,storyBgmQuiet=false;
+function playStoryReading(){storyBgmQuiet=true;setBgmVolume();storyReading.currentTime=0;storyReading.play().catch(()=>{});}
+function stopStoryReading(){storyBgmQuiet=false;setBgmVolume();resumeStoryReading=false;storyReading.pause();storyReading.currentTime=0;}
+document.addEventListener('visibilitychange',()=>{
+ if(document.hidden){resumeStoryReading=!storyReading.paused&&!storyReading.ended;storyReading.pause()}
+ else if(resumeStoryReading&&!storyOverlay.classList.contains('hidden')){resumeStoryReading=false;storyReading.play().catch(()=>{})}
+});
+document.getElementById('storySpeak')?.remove();document.querySelector('.story-card h2')?.remove();
+const behindOpening=[...document.body.children].filter(el=>el!==opening&&!['SCRIPT','STYLE'].includes(el.tagName));
+behindOpening.forEach(el=>el.inert=true);
+document.body.classList.add('opening');
+document.getElementById('enterAdventure').onclick=()=>{opening.remove();behindOpening.forEach(el=>el.inert=false);document.body.classList.remove('opening');storyOverlay.classList.remove('hidden');playStoryReading();const pin=document.querySelector('.story-pinyin'),eng=document.querySelector('.story-en');[['显示拼音',pin],['Translation / English',eng]].forEach(([label,target])=>{const b=document.createElement('button');b.className='story-toggle';b.textContent=label;b.onclick=()=>{const on=target.style.display==='block';target.style.display=on?'none':'block';b.textContent=on?label:`隐藏${label}`};document.querySelector('.story-tools').appendChild(b)});};
+document.getElementById('storyContinue').onclick=()=>{stopStoryReading();storyOverlay.classList.add('hidden');showPlayerChoice()};
+</script><script>
+/* Supplied music only: one player prevents overlap and fetches one track at a time. */
+const gameBgm=new Audio();
+gameBgm.preload='auto';gameBgm.autoplay=true;gameBgm.setAttribute('autoplay','');gameBgm.id='gameMusicPlayer';gameBgm.hidden=true;document.body.append(gameBgm);
+let bgmRegion='',bgmTrack='',bgmUnlocked=false,bgmBag=[],bgmLastQuiz='',bgmDucked=false,bgmSpeechToken=0,bgmPlayVersion=0;
+const bgmVolumes={main:.20,map:.16,quiz:.075};
+function bgmScene(){
+ if(document.getElementById('splash')||!document.getElementById('storyOverlay').classList.contains('hidden')||!document.getElementById('playerChoiceModal').classList.contains('hidden')||(profileEntryMode==='new'&&!profileModal.classList.contains('hidden')))return 'main';
+ return document.body.dataset.room?'quiz':'map';
+}
+function nextQuizMusic(){
+ if(!bgmBag.length){bgmBag=['quiz-1','quiz-2','quiz-3'];for(let i=2;i>0;i--){const j=Math.floor(Math.random()*(i+1));[bgmBag[i],bgmBag[j]]=[bgmBag[j],bgmBag[i]]}if(bgmBag[0]===bgmLastQuiz)[bgmBag[0],bgmBag[1]]=[bgmBag[1],bgmBag[0]]}
+ bgmLastQuiz=bgmBag.shift();return bgmLastQuiz;
+}
+function setBgmVolume(){
+ const volume=(bgmVolumes[bgmRegion]||.075)*(bgmDucked?.16:1)*(storyBgmQuiet?.3:1);
+ gameBgm.volume=volume;
+}
+function startBgmTrack(track){
+ bgmTrack=track;bgmPlayVersion++;gameBgm.pause();gameBgm.src=`assets/music/${track}${track.startsWith('quiz-')?'-soft':''}.mp3`;gameBgm.loop=bgmRegion!=='quiz';
+ gameBgm.load();
+ setBgmVolume();tryPlayBgm();
+}
+function tryPlayBgm(){
+ if(!musicEnabled||!bgmUnlocked||document.hidden||!bgmTrack)return;
+ const version=bgmPlayVersion;gameBgm.play().then(()=>{if(version===bgmPlayVersion&&(!musicEnabled||document.hidden))gameBgm.pause()}).catch(()=>{});
+}
+function syncGameMusic(){
+ const scene=bgmScene(),changed=scene!==bgmRegion;bgmRegion=scene;
+ if(!musicEnabled||!bgmUnlocked||document.hidden){gameBgm.pause();return}
+ if((scene==='quiz'&&gameBgm.ended)||changed||!bgmTrack||((scene==='quiz')!==bgmTrack.startsWith('quiz-'))||(scene!=='quiz'&&bgmTrack!==scene))startBgmTrack(scene==='quiz'?nextQuizMusic():scene);
+ else{setBgmVolume();tryPlayBgm()}
+}
+function unlockGameMusic(){
+ bgmUnlocked=true;
+ syncGameMusic();
+}
+function duckGameMusic(){const token=++bgmSpeechToken;bgmDucked=true;setBgmVolume();return()=>{if(token!==bgmSpeechToken)return;bgmDucked=false;setBgmVolume()}}
+gameBgm.addEventListener('ended',()=>{if(bgmRegion==='quiz'&&musicEnabled&&!document.hidden)startBgmTrack(nextQuizMusic())});
+document.addEventListener('pointerdown',unlockGameMusic,{capture:true});
+document.addEventListener('keydown',unlockGameMusic,{capture:true});
+document.addEventListener('visibilitychange',syncGameMusic);
+const musicSceneObserver=new MutationObserver(syncGameMusic);
+musicSceneObserver.observe(document.body,{attributes:true,attributeFilter:['data-room'],childList:true});
+for(const id of ['profileModal','playerChoiceModal'])musicSceneObserver.observe(document.getElementById(id),{attributes:true,attributeFilter:['class']});
+syncGameMusic();
+/* Try autoplay on the opening cover. Browsers that block autoplay will start
+   it on the first tap/click, while the opening page still remains the main
+   music scene until the player enters the map. */
+unlockGameMusic();
+window.addEventListener('load',()=>{unlockGameMusic();tryPlayBgm()},{once:true});
+
+// Final treasure sequence only; ordinary badges retain their existing flow.
+(() => {
+ const originalUnlock=showUnlock;
+ const css=document.createElement('style');
+ css.textContent=`
+ #treasureEnding{border:2px solid #e6c575;border-radius:26px;padding:0;width:min(960px,94vw);max-height:94dvh;overflow:auto;color:#fff3c9;background:radial-gradient(ellipse at 50% 25%,#286f75,#102c40 75%);box-shadow:0 0 65px #73e9d566;text-align:center;font-family:STKaiti,KaiTi,"Kaiti SC",serif}
+ #treasureEnding::backdrop{background:#051725df;backdrop-filter:blur(8px)}
+ #treasureEnding .treasure-inner{padding:22px clamp(16px,4vw,40px) 28px}
+ #treasureEnding h2{font:700 clamp(30px,5vw,46px)/1.25 STKaiti,KaiTi,serif;margin:4px 0 10px;color:#ffe49c}
+ #treasureEnding .treasure-stage{position:relative;height:clamp(220px,38vw,350px);isolation:isolate}
+ #treasureEnding .treasure-orb{position:absolute;width:32%;height:90%;object-fit:contain;left:34%;top:5%;opacity:0;animation:orbAwaken 2s 2.5s both,orbFloat 3s 4.5s ease-in-out infinite;filter:drop-shadow(0 0 22px #84fff1)}
+ #treasureEnding .treasure-friend{position:absolute;width:29%;height:85%;object-fit:contain;bottom:0;opacity:0;animation:friendArrive 1s 3.5s both,friendCelebrate 2s 4.5s ease-in-out infinite}
+ #treasureEnding .treasure-panda{left:0;--entry:-65px}#treasureEnding .treasure-otter{right:0;--entry:65px;animation-delay:3.7s,4.7s}
+ #treasureEnding .treasure-badge{position:absolute;width:clamp(40px,8vw,76px);height:clamp(40px,8vw,76px);left:50%;top:50%;object-fit:contain;opacity:0;animation:badgeGather 3s var(--delay) both;filter:drop-shadow(0 0 8px #ffde83)}
+ #treasureEnding .treasure-ring{position:absolute;inset:12% 31%;border:3px solid #ffde83;border-radius:50%;opacity:0;animation:treasureRing 2s 2.5s both}
+ #treasureEnding .treasure-mote{position:absolute;left:50%;top:50%;width:6px;height:6px;border-radius:50%;background:#ffeb9a;box-shadow:0 0 10px #fff;opacity:0;animation:treasureMote 3s var(--delay) infinite}
+ #treasureEnding .treasure-copy{font-size:clamp(23px,3vw,30px);line-height:1.65;animation:treasureText 1s 4s both}
+ #treasureEnding .treasure-copy p{margin:10px 0}#treasureEnding .treasure-reward{padding:12px;border:1px solid #d6be75;border-radius:16px;background:#ffe3a013;color:#ffe49c}
+ #treasureEnding button{font:700 clamp(23px,3vw,30px)/1.4 STKaiti,KaiTi,serif;cursor:pointer;padding:12px 24px;margin-top:14px;border:1px solid #e6c575;border-radius:16px;background:#1b7068;color:#fff2bc}
+ @keyframes badgeGather{0%{opacity:0;transform:translate(-50%,-50%) rotate(var(--angle)) translateY(-110px) rotate(calc(-1 * var(--angle))) scale(.4)}20%,55%{opacity:1;transform:translate(-50%,-50%) rotate(var(--angle)) translateY(-110px) rotate(calc(-1 * var(--angle))) scale(1)}100%{opacity:0;transform:translate(-50%,-50%) scale(.1)}}
+ @keyframes orbAwaken{0%{opacity:0;transform:scale(.05) rotate(-100deg)}70%{opacity:1;transform:scale(1.15) rotate(8deg)}100%{opacity:1;transform:scale(1) rotate(0)}}
+ @keyframes orbFloat{50%{transform:translateY(-10px) rotate(4deg)}}
+ @keyframes friendArrive{from{opacity:0;transform:translateX(var(--entry)) scale(.6)}to{opacity:1;transform:translateX(0) scale(1)}}
+ @keyframes friendCelebrate{50%{transform:translateY(-12px) rotate(3deg)}}
+ @keyframes treasureRing{0%{opacity:0;transform:scale(.1)}40%{opacity:1}100%{opacity:0;transform:scale(2.2)}}
+ @keyframes treasureMote{0%{opacity:0;transform:translate(0,0)}20%{opacity:1}100%{opacity:0;transform:translate(var(--dx),var(--dy))}}
+ @keyframes treasureText{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+ `;
+ document.head.appendChild(css);
+ showUnlock=function(id){
+  if(id!=='secret'||!allEarned()){originalUnlock(id);return}
+  if(document.getElementById('treasureEnding'))return;
+  const dialog=document.createElement('dialog');dialog.id='treasureEnding';
+  dialog.setAttribute('aria-labelledby','treasureTitle');
+  dialog.innerHTML=`<div class="treasure-inner"><h2 id="treasureTitle">词光宝珠，苏醒了！</h2><div class="treasure-stage" aria-label="六枚徽章汇聚，词光宝珠出现，两位伙伴欢呼"><div class="treasure-ring"></div><img class="treasure-orb" src="assets/wordlight-orb.png" alt="词光宝珠"><img class="treasure-friend treasure-panda" src="assets/panda-celebrate.png" alt="熊猫小侠庆祝"><img class="treasure-friend treasure-otter" src="assets/otter-celebrate.png" alt="水獭灵灵庆祝"></div><div class="treasure-copy"><p>六枚词光徽章终于全部被点亮了！<br>你和伙伴们唤醒了沉睡的词光宝珠。</p><p>奇境里的文字重新亮了起来，<br>被浓雾挡住的道路也再次出现。</p><p>宝珠中似乎藏着一扇通往新世界的大门……<br>熊猫小侠、水獭灵灵和你的下一场冒险，<br>正等着你们！</p><p class="treasure-reward">恭喜你成为词光守护者！<br>请向老师展示通关画面，<br>领取现实世界的神秘宝珠奖励。</p></div><button type="button">领取最终徽章</button></div>`;
+  const stage=dialog.querySelector('.treasure-stage');
+  MISSIONS.forEach((m,i)=>{const img=document.createElement('img');img.src=badgeFile(m.id);img.alt='';img.className='treasure-badge';img.style.setProperty('--angle',i*60+'deg');img.style.setProperty('--delay',i*.1+'s');stage.appendChild(img)});
+  for(let i=0;i<22;i++){const dot=document.createElement('i');dot.className='treasure-mote';dot.setAttribute('aria-hidden','true');const angle=i*Math.PI*2/22;dot.style.setProperty('--dx',Math.cos(angle)*180+'px');dot.style.setProperty('--dy',Math.sin(angle)*140+'px');dot.style.setProperty('--delay',3+i*.09+'s');stage.appendChild(dot)}
+  const finish=()=>{dialog.close();dialog.remove();originalUnlock('secret')};
+  dialog.querySelector('button').onclick=finish;
+  dialog.addEventListener('cancel',e=>{e.preventDefault();finish()});
+  document.body.appendChild(dialog);dialog.showModal();
+  window.GameEffects?.play('badge');
+ };
+})();
+
+</script><dialog id="rankDialog" aria-labelledby="rankTitle"><div class="rank-header"><div><h2 id="rankTitle">词光英雄榜</h2><p>每一步探索，都值得被看见。</p></div><button id="rankClose" aria-label="关闭排行榜">×</button></div><div class="rank-tools"><label for="rankScope">查看</label><select id="rankScope"><option value="class">我的班级</option><option value="all">全部班级</option></select><button id="rankRefresh">刷新排行榜</button></div><p id="rankStatus" role="status"></p><p data-cloud-status aria-live="polite"></p><div id="rankContent"></div><div id="rankMine"></div><p class="rank-rule" id="rankRules">满分1100分＝基础积分1000分＋星星奖励分100分。五个答题关各最多20颗星计分，每颗加1分；超过上限的星星仍会累计显示。原有徽章和本机进度保留。</p></dialog><script src="leaderboard.js?v=2g3-20260921"></script></body></html>

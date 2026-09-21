@@ -1,0 +1,13 @@
+/* Scoped to the opening story; the adventure button stays visible. */
+#storyOverlay{padding:16px}
+#storyOverlay .story-card{width:min(960px,100%);max-height:calc(100dvh - 32px);padding:clamp(16px,2.4vw,28px);display:flex;flex-direction:column;overflow:hidden;box-sizing:border-box}
+#storyOverlay .story-copy{min-height:0;overflow-y:auto;overscroll-behavior:contain;scrollbar-width:thin}
+#storyOverlay .story-cn{max-width:none;white-space:pre-line;margin:0;font-family:'STKaiti','KaiTi',serif;font-size:clamp(21px,2.5vw,26px);line-height:1.65;text-align:left}
+#storyOverlay .story-pinyin,#storyOverlay .story-en{max-width:none;margin:12px 0 0}
+#storyOverlay .story-actions{flex-shrink:0;padding-top:8px}
+#storyOverlay .story-tools{gap:8px}
+#storyOverlay #storyContinue{display:block;width:clamp(260px,32vw,440px);max-width:100%;min-width:0;min-height:0;aspect-ratio:3;margin:6px auto 0;padding:0 35px;border:0;border-radius:0;background:url('assets/start-jade.webp') center/contain no-repeat!important;box-shadow:none;color:#fff2ba;text-shadow:0 2px 2px #102f2b;font-family:'STKaiti','KaiTi',serif;font-size:clamp(23px,2.5vw,38px);font-weight:850;line-height:1.2;transition:filter .15s}
+#storyOverlay #storyContinue:hover{filter:brightness(1.16);transform:none}
+#storyOverlay #storyContinue:active{filter:brightness(.9);transform:none}
+@media(orientation:portrait){#storyOverlay #storyContinue{width:min(76vw,370px);font-size:28px}}
+@media(max-width:580px){#storyOverlay{padding:10px}#storyOverlay .story-card{max-height:calc(100dvh - 20px);padding:16px}#storyOverlay .story-cn{font-size:21px;line-height:1.6}}

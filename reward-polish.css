@@ -1,0 +1,24 @@
+/* Only the requested toolbars and badge celebration. */
+.topbar .top-btn,.topbar #rankBtn{font-size:20px;line-height:1.35;padding:11px 16px}
+.topbar .brand{font-size:21px}
+.map-toolbar .top-btn{font-size:20px;line-height:1.35;padding:11px 16px}
+.map-toolbar:after{font-size:17px;line-height:1.5}
+.map-toolbar span{font-size:16px;line-height:1.4}
+#unlockModal .unlock-medal{animation:none!important}
+#unlockModal .unlock-card.badge-arriving{overflow:visible;perspective:1200px}
+#unlockModal .badge-arriving .unlock-medal{animation:badgeTriumph 3.1s cubic-bezier(.22,.7,.3,1) both!important;transform-style:preserve-3d;position:relative;z-index:2;will-change:transform;filter:drop-shadow(0 0 26px #ffe28b)}
+@keyframes badgeTriumph{
+  0%{transform:translateY(var(--badge-rise)) scale(.08) rotateY(0deg);opacity:0}
+  12%{opacity:1}
+  28%{transform:translateY(var(--badge-rise)) scale(var(--badge-peak)) rotateY(0deg)}
+  51%{transform:translateY(var(--badge-rise)) scale(var(--badge-peak)) rotateY(360deg);opacity:1}
+  77%{transform:translateY(var(--badge-rise)) scale(var(--badge-peak)) rotateY(360deg);opacity:1}
+  100%{transform:translateY(0) scale(1) rotateY(360deg);opacity:1}
+}
+@media(max-width:580px){
+ .topbar .top-inner{gap:7px}
+ .topbar .top-btn,.topbar #rankBtn{font-size:17px;padding:10px 12px}
+ .map-toolbar .top-btn{font-size:18px}
+ .map-toolbar:after{font-size:16px}
+ .map-toolbar span{font-size:15px}
+}
