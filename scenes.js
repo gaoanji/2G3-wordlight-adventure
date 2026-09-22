@@ -19,8 +19,8 @@ function queueMapJourney(id,completed=false){pendingJourney={id,newlyUnlocked:co
 function resetMapJourney(){pendingJourney=null;try{localStorage.removeItem('wordmaster_map_place_2g3_v2')}catch{}}
 function savedMapPlace(){try{return localStorage.getItem('wordmaster_map_place_2g3_v2')}catch{return null}}
 function renderAdventureMap(){entryJourneyToken++;entryJourneyActive=false;cancelAnimationFrame(journeyFrame);prepareWalkingArt();journeyTimers.forEach(clearTimeout);journeyTimers=[];
-missionGrid.className='scene-scroll';missionGrid.innerHTML=`<div class="map-world"><img class="map-picture" src="assets/map-clean.webp" alt="六座由石桥相连的词语奇境，选择一座建筑进入任务" draggable="false">${mapPlaces.map(n=>{const m=MISSIONS.find(m=>m.id===n.id),done=badgeEarned(n.id),locked=!missionAvailable(n.id);return `<button type="button" class="island ${locked?'is-gray is-locked':done?'is-lit':'is-current'}" data-place="${n.id}" style="clip-path:polygon(${n.poly})" aria-label="${m.name}，${done?'已点亮':locked?'完成前置任务后解锁':'已开启，可以进入'}" aria-expanded="false" aria-controls="mapPanel"><img src="assets/map-clean.webp" alt="" draggable="false"></button><button class="place-label ${locked?'is-locked':done?'is-lit':'is-current'}" style="left:${n.x}%;top:${n.y}%" data-place="${n.id}" aria-expanded="false" aria-controls="mapPanel">${m.name}<span>${locked?'未解锁':done?'已通关':'去探索'}</span></button>`}).join('')}<div class="map-party" aria-hidden="true"><span class="party-halo"></span><span class="party-beacon">我们在这里</span><span class="party-walk"></span><img src="assets/characters/panda-hero-hanfu.png" alt=""><img src="assets/characters/otter-companion-hanfu.png" alt=""></div><div class="map-panel hidden" id="mapPanel"></div><p class="map-tip">先完成藏书阁 · 再自由探索四关</p></div><div class="map-toolbar"><button class="top-btn" id="showMyBadges">我的徽章</button><button class="top-btn" id="findParty">找到伙伴</button><span>小屏幕可左右滑动地图</span></div><p id="journeyStatus" class="sr-only" aria-live="polite"></p>`;
-const world=missionGrid.querySelector('.map-world');world.querySelectorAll('[data-place]').forEach(button=>{button.addEventListener('pointerenter',e=>{if(e.pointerType==='mouse'&&!pinnedPlace){clearTimeout(hoverTimer);hoverTimer=setTimeout(()=>showMapPanel(button.dataset.place),160)}});button.addEventListener('focus',()=>{pinnedPlace=true;showMapPanel(button.dataset.place)});button.addEventListener('click',()=>{pinnedPlace=true;showMapPanel(button.dataset.place)});});world.addEventListener('pointerleave',()=>{hoverTimer=setTimeout(closeMapPanel,180)});world.addEventListener('pointerenter',()=>clearTimeout(hoverTimer));world.addEventListener('click',e=>{if(!e.target.closest('[data-place],.map-panel'))closeMapPanel()});world.addEventListener('keydown',e=>{if(e.key==='Escape'){closeMapPanel();e.target.blur()}});world.addEventListener('focusout',e=>{if(!world.contains(e.relatedTarget))closeMapPanel()});document.getElementById('showMyBadges').onclick=()=>badgeWall.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion:reduce)').matches?'instant':'smooth',block:'center'});
+missionGrid.className='scene-scroll';missionGrid.innerHTML=`<div class="map-world"><img class="map-picture" src="assets/map-clean.webp" alt="六座由石桥相连的词语奇境，选择一座建筑进入任务" draggable="false">${mapPlaces.map(n=>{const m=MISSIONS.find(m=>m.id===n.id),done=badgeEarned(n.id),locked=!missionAvailable(n.id);return `<button type="button" class="island ${locked?'is-gray is-locked':done?'is-lit':'is-current'}" data-place="${n.id}" style="clip-path:polygon(${n.poly})" aria-label="${m.name}，${done?'已点亮':locked?'完成前置任务后解锁':'已开启，可以进入'}" aria-expanded="false" aria-controls="mapPanel"><img src="assets/map-clean.webp" alt="" draggable="false"></button><button class="place-label ${locked?'is-locked':done?'is-lit':'is-current'}" style="left:${n.x}%;top:${n.y}%" data-place="${n.id}" aria-expanded="false" aria-controls="mapPanel">${m.name}<span>${locked?'未解锁':done?'已通关':'去探索'}</span></button>`}).join('')}<div class="map-party" aria-hidden="true"><span class="party-halo"></span><span class="party-beacon">我们在这里</span><span class="party-walk"></span><img src="assets/characters/panda-hero-hanfu.png" alt=""><img src="assets/characters/otter-companion-hanfu.png" alt=""></div><div class="map-panel hidden" id="mapPanel"></div><p class="map-tip">先完成藏书阁 · 再自由探索四关</p></div><div class="map-toolbar"><button class="top-btn" id="findParty">找到伙伴</button><span>小屏幕可左右滑动地图</span></div><p id="journeyStatus" class="sr-only" aria-live="polite"></p>`;
+const world=missionGrid.querySelector('.map-world');world.querySelectorAll('[data-place]').forEach(button=>{button.addEventListener('pointerenter',e=>{if(e.pointerType==='mouse'&&!pinnedPlace){clearTimeout(hoverTimer);hoverTimer=setTimeout(()=>showMapPanel(button.dataset.place),160)}});button.addEventListener('focus',()=>{pinnedPlace=true;showMapPanel(button.dataset.place)});button.addEventListener('click',()=>{pinnedPlace=true;showMapPanel(button.dataset.place)});});world.addEventListener('pointerleave',()=>{hoverTimer=setTimeout(closeMapPanel,180)});world.addEventListener('pointerenter',()=>clearTimeout(hoverTimer));world.addEventListener('click',e=>{if(!e.target.closest('[data-place],.map-panel'))closeMapPanel()});world.addEventListener('keydown',e=>{if(e.key==='Escape'){closeMapPanel();e.target.blur()}});world.addEventListener('focusout',e=>{if(!world.contains(e.relatedTarget))closeMapPanel()});document.getElementById('showMyBadges').onclick=toggleMyBadges;
 document.getElementById('findParty').onclick=()=>revealParty(true);const old=mapPlaces.find(n=>n.id===savedMapPlace());placeParty(old?.foot||[17,87]);if(pendingJourney){const target=mapPlaces.find(n=>n.id===pendingJourney.id),newlyUnlocked=pendingJourney.newlyUnlocked;pendingJourney=null;if(target){journeyFrame=requestAnimationFrame(()=>requestAnimationFrame(()=>animateJourney(old,target,newlyUnlocked)))}}}
 function showMapPanel(id){if(entryJourneyActive)return;clearTimeout(hoverTimer);selectedPlace=id;const n=mapPlaces.find(n=>n.id===id),m=MISSIONS.find(m=>m.id===id),locked=!missionAvailable(id);const panel=document.getElementById('mapPanel');panel.innerHTML=`<button class="panel-close" aria-label="关闭介绍">×</button><h3>${m.name}</h3><p>${locked?missionLockMessage(id):m.desc}</p><div class="panel-charge">${badgeArt(id,missionProgress(id),badgeEarned(id))}<span>${badgeEarned(id)?'徽章已点亮':`徽章充能 ${missionProgress(id)}%`}</span></div><button class="room-enter" ${locked?'disabled':''}>${locked?'等待解锁':id==='cards'?'进入藏书阁':'进入关卡 · 6题'}</button>`;panel.style.left=`${Math.min(77,Math.max(15,n.x))}%`;panel.style.top=`${n.y>55?n.y-34:n.y+6}%`;panel.classList.remove('hidden');panel.onpointerenter=()=>clearTimeout(hoverTimer);panel.querySelector('.panel-close').onclick=closeMapPanel;panel.querySelector('.room-enter').onclick=()=>walkIntoMission(id);missionGrid.querySelectorAll('[data-place]').forEach(b=>b.setAttribute('aria-expanded',String(b.dataset.place===id)));}
 function closeMapPanel(){document.getElementById('mapPanel')?.classList.add('hidden');document.querySelectorAll('[data-place]').forEach(b=>b.setAttribute('aria-expanded','false'));selectedPlace=null;pinnedPlace=false;clearTimeout(hoverTimer);}
@@ -70,3 +70,40 @@ function animateBadgeArrival(){
  medal.addEventListener('animationend',done);
  badgeArrivalTimer=setTimeout(finish,3250);
 }
+
+// Keep map navigation separate from the opening screen and badge collection.
+function fitMap(){
+ const bar=document.querySelector('.topbar'),toolbar=document.querySelector('.map-toolbar');
+ const top=(bar?.getBoundingClientRect().height||70)+12;
+ document.documentElement.style.setProperty('--map-top',top+'px');
+ const height=Math.max(180,window.innerHeight-top-(toolbar?.offsetHeight||60)-18);
+ document.documentElement.style.setProperty('--map-fit-width',(height*1672/941)+'px');
+}
+function focusFullMap(){
+ if(homeView.classList.contains('hidden'))return;
+ fitMap();
+ const top=document.querySelector('.topbar').getBoundingClientRect().height+12;
+ window.scrollTo({top:Math.max(0,missionGrid.getBoundingClientRect().top+window.scrollY-top),behavior:'instant'});
+ missionGrid.scrollLeft=0;
+}
+function toggleMyBadges(){
+ const section=document.getElementById('badgeSection'),button=document.getElementById('showMyBadges');
+ if(!homeView.classList.contains('hidden')&&!section.classList.contains('hidden')){
+  section.classList.add('hidden');button.setAttribute('aria-expanded','false');focusFullMap();return;
+ }
+ renderHome();section.classList.remove('hidden');button.setAttribute('aria-expanded','true');
+ requestAnimationFrame(()=>section.scrollIntoView({block:'start',behavior:'instant'}));
+}
+function returnToOpening(){
+ window.WordlightCloud?.leave();save();
+ if('speechSynthesis' in window)speechSynthesis.cancel();
+ location.reload();
+}
+function renderRoundBadgeProgress(id){
+ const m=state.missions[id],short=id==='detective'||id==='exam';
+ const target=short?4:WORDS.length,count=short?m.rounds:m.covered.length;
+ const accuracy=m.total?Math.round(m.correct/m.total*100):0;
+ const percent=m.earned?100:Math.min(99,Math.round(Math.min(1,count/target)*100));
+ document.getElementById('roundBadgeProgress').innerHTML=`<strong>${MISSIONS.find(x=>x.id===id).name} · 徽章进度 ${percent}%</strong><progress max="100" value="${percent}" aria-label="本关徽章进度">${percent}%</progress><p>${short?'已完成局数':'已练习词语'}：${count} / ${target}${short?'局':'个'} · 累计正确率：${accuracy}%</p><p>${m.earned?'徽章已点亮！可以继续练习或挑战其他任务。':`点亮条件：${short?'完成至少4局':`覆盖全部${WORDS.length}个词语`}，且累计正确率达到70%。`}</p>`;
+}
+window.addEventListener('resize',fitMap);

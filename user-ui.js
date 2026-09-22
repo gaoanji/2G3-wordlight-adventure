@@ -20,7 +20,7 @@ function showPlayerChoice(){
  document.getElementById('lastPlayerName').textContent=`${state.profile.name} · ${state.profile.className}`;
  document.getElementById('playerChoiceModal').classList.remove('hidden');document.getElementById('continuePlayer').focus();
 }
-function continueLastPlayer(){document.getElementById('playerChoiceModal').classList.add('hidden');save();homeBtn.focus()}
+function continueLastPlayer(){document.getElementById('playerChoiceModal').classList.add('hidden');save();homeBtn.focus({preventScroll:true});requestAnimationFrame(focusFullMap)}
 function openNewPlayer(){
  profileEntryMode='new';document.getElementById('playerChoiceModal').classList.add('hidden');
  document.getElementById('profileTitle').textContent='新的冒险者';
@@ -54,7 +54,7 @@ function submitPlayerProfile(){
   state=existing?JSON.parse(JSON.stringify(existing.state)):fresh();state.profile=profile;normalize();
   if(existing?.mapPlace)localStorage.setItem('wordmaster_map_place_2g3_v2',existing.mapPlace);
  }
- save();profileModal.classList.add('hidden');renderHome();homeBtn.focus();
+ save();profileModal.classList.add('hidden');renderHome();homeBtn.focus({preventScroll:true});requestAnimationFrame(focusFullMap);
 }
 function refreshAudioSettings(){
  for(const [id,on] of [['musicSetting',musicEnabled],['soundSetting',!uiMuted]]){const b=document.getElementById(id);b.setAttribute('aria-checked',String(on));b.textContent=on?'开':'关'}
