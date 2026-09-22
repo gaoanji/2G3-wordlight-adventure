@@ -31,7 +31,7 @@
     #storySpeak{display:none!important}.story-card h2{display:none}.story-cn{font-family:'STKaiti','KaiTi',serif;font-size:clamp(1.28rem,3vw,1.65rem);line-height:2.05}.story-card .primary,.story-tools .story-toggle{min-height:62px;min-width:235px;border:0;border-radius:0;color:#fff2ba;background:url('assets/start-jade.webp') center/contain no-repeat!important;text-shadow:0 2px 2px #102f2b;font-family:'STKaiti','KaiTi',serif;font-size:clamp(23px,2.5vw,38px);font-weight:900;padding:0 35px;box-shadow:none;transition:filter .15s}.story-card .primary{margin:22px auto 0}.story-card .primary:hover,.story-tools .story-toggle:hover{filter:brightness(1.16);transform:none}.story-card .primary:active,.story-tools .story-toggle:active{filter:brightness(.9);transform:none}
     @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
   </style>
-<link rel="stylesheet" href="adventure.css"><link rel="stylesheet" href="scenes.css?v=13"><script src="scenes.js?v=2g3-nav-20260922"></script><script src="user-ui.js?v=2g3-nav-20260922"></script>
+<link rel="stylesheet" href="adventure.css"><link rel="stylesheet" href="scenes.css?v=13"><script src="scenes.js?v=2g3-fullmap-20260922"></script><script src="user-ui.js?v=2g3-nav-20260922"></script>
 <link rel="stylesheet" href="leaderboard.css?v=3">
 <link rel="stylesheet" href="reward-polish.css?v=1">
 <link rel="stylesheet" href="story-layout.css?v=1">
@@ -45,6 +45,26 @@
 #roundBadgeProgress p{margin:4px 0}
 #resultModal .modal-card{max-height:90dvh;overflow-y:auto}
 @media(max-width:600px){#missionGrid .place-label{font-size:11px;padding:4px 6px;min-height:32px;border-radius:10px}#missionGrid .place-label span{font-size:9px}#missionGrid .map-tip{font-size:10px;padding:4px 8px}#missionGrid .map-toolbar span{font-size:11px}}
+</style><style>
+/* Full-window map presentation; task rooms keep their existing layout. */
+body.map-screen:not(.opening){overflow:hidden;background:#b3dced}
+body.map-screen main{max-width:none!important;padding:0!important;margin:0!important}
+body.map-screen #homeView>.welcome,body.map-screen #homeView>.section-head,body.map-screen #homeView>.records{display:none!important}
+body.map-screen #missionGrid{position:fixed;inset:0;width:100vw;height:100dvh;max-width:none;margin:0;border:0;border-radius:0;box-shadow:none;overflow:auto;background:#b3dced}
+body.map-screen #missionGrid .map-world{width:100%;height:100%;min-height:100%;min-width:0;aspect-ratio:auto}
+body.map-screen .topbar{position:fixed;inset:0 0 auto;z-index:25;background:linear-gradient(#f0faff80,transparent);border:0;box-shadow:none;backdrop-filter:none;pointer-events:none;padding:12px max(16px,env(safe-area-inset-right)) 24px}
+body.map-screen .top-inner{max-width:none;justify-content:flex-end;gap:10px;padding:0;flex-wrap:wrap}
+body.map-screen .topbar .brand{display:none}
+body.map-screen .topbar .top-btn{pointer-events:auto;color:#fff1bd;background:linear-gradient(155deg,#286f68f2,#123d3ff2);border:2px solid #d5b46b;border-radius:16px 5px;box-shadow:inset 0 0 0 2px #163d3a,inset 0 0 14px #ffe8a52b,0 4px 9px #133f4540;font-family:'STKaiti','KaiTi',serif;font-size:20px;font-weight:700;min-height:46px;padding:9px 18px;text-shadow:0 1px 2px #153a38;transition:filter .15s,transform .15s}
+body.map-screen .topbar .top-btn:hover{filter:brightness(1.15);transform:translateY(-1px)}
+body.map-screen .topbar .top-btn:focus-visible{outline:3px solid #fff8d3;outline-offset:3px}
+body.map-screen .map-copyright{position:fixed;z-index:6;bottom:0;left:0;right:0;margin:0;padding:6px 12px max(6px,env(safe-area-inset-bottom));text-align:center;color:#fff4d8;background:linear-gradient(transparent,#103c44a6);font:11px/1.4 Arial,sans-serif;text-shadow:0 1px 3px #173c43;pointer-events:none}
+body.map-screen .map-tip{bottom:32px}
+body.map-screen #badgeSection:not(.hidden){position:fixed;z-index:24;left:3vw;right:3vw;bottom:38px;max-height:calc(100dvh - 140px);overflow:auto;padding:12px 20px 18px;border:2px solid #d5b46b;border-radius:22px;background:#f4f4e9f5;box-shadow:0 12px 40px #103d4966;backdrop-filter:blur(8px)}
+body.map-screen #badgeSection .section-head{margin:0 0 12px}
+body.map-screen #badgeSection .badge-wall{margin:0}
+@media(max-width:700px){body.map-screen .topbar{padding:8px 8px 16px}body.map-screen .top-inner{gap:5px;justify-content:center}body.map-screen .topbar .top-btn{font-size:14px;min-height:40px;padding:6px 9px;border-width:1px}body.map-screen .map-copyright{font-size:9px}body.map-screen #badgeSection:not(.hidden){left:8px;right:8px;padding:12px}body.map-screen #missionGrid .map-world{min-width:760px}body.map-screen #missionGrid{overflow-x:auto}body.map-screen .map-tip{font-size:12px!important}}
+@media(max-height:500px){body.map-screen .topbar .top-btn{font-size:14px;min-height:36px;padding:5px 10px}body.map-screen .topbar{padding-top:6px}body.map-screen #badgeSection:not(.hidden){max-height:calc(100dvh - 95px)}}
 </style></head>
 <body>
 <section id="splash" aria-label="词光奇境大冒险"><picture class="cover-art"><source media="(orientation:portrait)" srcset="assets/cover-tall.webp"><img src="assets/cover-wide.webp" alt="词光奇境大冒险，汉服熊猫和水獭带你探索奇境"></picture><button id="enterAdventure">进入游戏</button><div class="splash-school"><img src="assets/school-logo.png" alt="Bedok Green Secondary School" width="463" height="514"></div><p class="splash-credit"><span>© 2026 Bedok Green Secondary School</span><span> · Designed by Miss Gao Anji</span><span> · For Educational Use Only</span></p></section>
